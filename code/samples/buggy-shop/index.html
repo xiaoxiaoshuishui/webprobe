@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Buggy Shop 演示商城 — 首页</title>
+
+  <!--
+    BUG #8 security (CSP inline-script violation / securitypolicyviolation):
+    下面这个 meta CSP 只允许 app.js / analytics.js 两个外部脚本，
+    内联脚本必须携带正确的 sha256 摘要才允许执行。
+      * 因此文件末尾那段 window.__legacyTracker 内联脚本会被浏览器拦截，
+        产生一条 securitypolicyviolation 事件 + 控制台 "Refused to execute inline script"；
+      * 同时它让"被 CSP 拦截"这个缺陷在离线环境也能稳定复现（不需要外网）。
+    注意：页面自有的骨架脚本已用 sha256 白名单放行，只有标记了 BUG #8 的那段被拦。
+  -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self' 'sha256-MAqEGTZnSo6XF1j0JFfQpUCHzgfalBzUEXH7oXTxwZM='; connect-src 'self'" />
+
+  <link rel="stylesheet" href="/assets/app.css" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/index.html"><span class="brand__dot"></span>Buggy Shop</a>
+      <nav class="nav">
+        <a href="/index.html" aria-current="page">首页</a>
+        <a href="/product.html">商品详情</a>
+        <a href="/cart.html">购物车</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!--
+      BUG #6 dom-anomaly (assertion: hero-visible):
+      首页应当有一个主视觉横幅 #hero-banner，但这次发布忘了渲染它 —— 元素在 DOM 中
+      完全不存在（不是隐藏、不是 display:none）。target.json 里的断言
+      { "selector": "#hero-banner", "urlPattern": "**/index.html" } 因此必然失败。
+      下面只留了一段占位注释，方便读者按图索骥。
+      <div id="hero-banner" class="banner">…</div>   <-- 缺失
+    -->
+
+    <section class="card">
+      <h1>秋季焕新 · 机械键盘专场</h1>
+      <p class="muted">满 299 减 50，全场顺丰包邮。此页面为 WebProbe 自检夹具，包含刻意植入的缺陷。</p>
+
+      <!-- BUG #6 dom-anomaly / template leak: 徽章把模板变量直接渲染成了可见文本 -->
+      <p>
+        <!-- BUG #6 template-leak: 下面这段应当被模板引擎替换成用户名，实际渲染出字面量 {{userName}} 和 undefined -->
+        <span class="badge" id="user-badge">欢迎回来，{{userName}}，您的等级：undefined</span>
+      </p>
+
+      <div class="toolbar">
+        <!-- BUG #1 js-exception 的触发点 -->
+        <button class="btn" id="btn-buy-now" type="button">立即购买</button>
+        <a class="btn btn--ghost" href="/product.html">查看商品详情</a>
+      </div>
+
+      <div id="order-confirm" class="notice" hidden></div>
+      <div id="page-boot"></div>
+    </section>
+
+    <!--
+      BUG #5c resource-error: 首页横幅图 /assets/missing-banner.png 在仓库里不存在，
+      静态服务器返回 404（<img> 的 onerror 也会触发一次失败请求）。
+    -->
+    <div class="banner">
+      <img id="banner-img" src="/assets/missing-banner.png" alt="秋季大促横幅（该图片文件缺失）" width="1080" height="180" />
+    </div>
+
+    <h2>热销商品</h2>
+    <div class="grid">
+      <article class="product">
+        <div class="product__media" aria-hidden="true">⌨️</div>
+        <div class="product__body">
+          <h3 class="product__title">机械键盘 K87</h3>
+          <p class="product__desc">87 键 / 红轴 / 双模无线</p>
+          <p class="product__price">¥329.00</p>
+          <a class="btn btn--ghost" href="/product.html">去看看</a>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product__media" aria-hidden="true">🖱️</div>
+        <div class="product__body">
+          <h3 class="product__title">轻量游戏鼠标 M3</h3>
+          <p class="product__desc">58g / 26000DPI / 无线</p>
+          <p class="product__price">¥199.00</p>
+          <a class="btn btn--ghost" href="/product.html">去看看</a>
+        </div>
+      </article>
+      <article class="product">
+        <div class="product__media" aria-hidden="true">🎧</div>
+        <div class="product__body">
+          <h3 class="product__title">降噪耳机 H1</h3>
+          <p class="product__desc">主动降噪 / 40h 续航</p>
+          <p class="product__price">¥499.00</p>
+          <a class="btn btn--ghost" href="/product.html">去看看</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>Buggy Shop 演示商城 · WebProbe 自检夹具 · <a href="/cart.html">购物车</a></p>
+  </footer>
+
+  <!-- 页面骨架脚本：hash 已加入上面的 CSP 白名单，正常执行（正文必须顶格，否则 sha256 对不上） -->
+<script>
+(function () {
+  // 页面骨架脚本：给未登录用户初始化一个占位徽章（真实项目里由 SSR 注入）。
+  var el = document.createElement('div');
+  el.className = 'notice';
+  el.setAttribute('data-role', 'page-boot');
+  el.textContent = '页面骨架已就绪';
+  document.addEventListener('DOMContentLoaded', function () {
+    var host = document.querySelector('#page-boot');
+    if (host) host.appendChild(el);
+  });
+})();
+</script>
+
+  <!--
+    BUG #8 security: 内联脚本被上面的 CSP 拦截，永远不会执行。
+    预期可观测信号：securitypolicyviolation 事件 + 控制台
+    "Refused to execute inline script because it violates the following
+     Content Security Policy directive: script-src ..."
+  -->
+  <script>
+    window.__legacyTracker = window.__legacyTracker || { hits: [] };
+    window.__legacyTracker.hits.push({ path: location.pathname, ts: Date.now() });
+    console.warn('legacy tracker inline script ran; this should never happen under CSP');
+  </script>
+
+  <script src="/assets/analytics.js"></script>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

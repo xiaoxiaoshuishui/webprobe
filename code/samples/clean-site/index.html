@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean Docs — 产品文档站点（WebProbe 无缺陷对照组）</title>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/index.html"><span class="logo__mark">C</span>Clean Docs</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/index.html" aria-current="page">首页</a>
+        <a href="/guide.html">使用指南</a>
+        <a href="/getting-started.html">快速开始</a>
+        <a href="/faq.html">常见问题</a>
+        <a href="/contact.html">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <section class="hero" id="hero-banner">
+      <h1>Clean Docs — 干净、可信赖的产品文档</h1>
+      <p class="muted">
+        这是 WebProbe 的<b>无缺陷对照组</b>：没有未捕获异常、没有未处理的 Promise 拒绝、
+        没有 console.error、没有任何 404、没有缺失资源、没有模板变量透出，
+        也不存在会卡死主线程的代码。
+      </p>
+      <div class="toolbar">
+        <a class="btn" href="/getting-started.html">5 分钟快速开始</a>
+        <a class="btn btn--ghost" href="/guide.html">浏览使用指南</a>
+      </div>
+    </section>
+
+    <section class="panel" id="service-status">
+      <h2>服务状态</h2>
+      <p class="status" id="status-badge">
+        <span class="status__dot status__dot--ok" id="status-dot"></span>
+        <span id="status-text">全部服务正常</span>
+      </p>
+      <div id="service-list">
+        <div class="kv"><span>api</span><span class="muted">ok · 42ms</span></div>
+        <div class="kv"><span>docs</span><span class="muted">ok · 11ms</span></div>
+        <div class="kv"><span>search</span><span class="muted">ok · 73ms</span></div>
+      </div>
+      <div class="kv"><span>当前版本</span><span id="status-version">v1.4.2</span></div>
+      <div class="kv"><span>数据生成时间</span><span id="status-generated">—</span></div>
+      <div class="kv"><span>最近检查</span><span id="status-checked-at">—</span></div>
+      <p class="muted" id="status-note">状态数据来自 /api/status.json（静态 JSON，HTTP 200）</p>
+      <div class="toolbar">
+        <button class="btn btn--ghost" id="btn-refresh-status" type="button">重新检查</button>
+      </div>
+    </section>
+
+    <h2>从哪里开始</h2>
+    <ul class="cards">
+      <li>
+        <h3>快速开始</h3>
+        <p class="muted">安装、初始化配置、跑通第一个例子。</p>
+        <a href="/getting-started.html">开始阅读 →</a>
+      </li>
+      <li>
+        <h3>使用指南</h3>
+        <p class="muted">核心概念、常见配置与最佳实践。</p>
+        <a href="/guide.html">查看指南 →</a>
+      </li>
+      <li>
+        <h3>常见问题</h3>
+        <p class="muted">报错排查、兼容性与性能建议。</p>
+        <a href="/faq.html">查看 FAQ →</a>
+      </li>
+      <li>
+        <h3>联系我们</h3>
+        <p class="muted">表单校验通过后即可提交反馈。</p>
+        <a href="/contact.html">联系支持 →</a>
+      </li>
+    </ul>
+
+    <section class="panel">
+      <h2>为什么这个站点是"干净"的</h2>
+      <table>
+        <thead>
+          <tr><th>检查项</th><th>本站在做的事</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>JS 异常</td><td>所有可能失败的分支都有 <code>try/catch</code> 或 <code>.catch()</code></td></tr>
+          <tr><td>未处理拒绝</td><td><code>fetch</code> 链路末尾一定有 <code>.catch()</code></td></tr>
+          <tr><td>控制台输出</td><td>完全不调用 <code>console.error</code> / <code>console.warn</code></td></tr>
+          <tr><td>HTTP 状态</td><td>站点内所有请求都指向真实存在的静态文件，全部 200</td></tr>
+          <tr><td>资源加载</td><td>CSS / JS / 图标 / 状态 JSON 全部随目录一起发布</td></tr>
+          <tr><td>主线程</td><td>只有有界的 rAF 动画（200ms）与短定时器，无阻塞循环</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>© 2026 Clean Docs（演示用）</span>
+      <a href="/guide.html">使用指南</a>
+      <a href="/getting-started.html">快速开始</a>
+      <a href="/faq.html">常见问题</a>
+      <a href="/contact.html">联系我们</a>
+      <a href="/data/status.json">原始状态数据</a>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>

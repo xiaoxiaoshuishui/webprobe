@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>常见问题 — Clean Docs</title>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/index.html"><span class="logo__mark">C</span>Clean Docs</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/index.html">首页</a>
+        <a href="/guide.html">使用指南</a>
+        <a href="/getting-started.html">快速开始</a>
+        <a href="/faq.html" aria-current="page">常见问题</a>
+        <a href="/contact.html">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 id="hero-banner">常见问题</h1>
+    <p class="muted">下面是集成方最常问的 6 个问题。找不到答案可以<a href="/contact.html">联系我们</a>。</p>
+
+    <section class="panel">
+      <details open>
+        <summary>1. 站点需要联网吗？</summary>
+        <p>不需要。所有资源（CSS、JS、图标、状态 JSON）都随目录一起发布，不引用任何外部域名。</p>
+      </details>
+
+      <details>
+        <summary>2. 为什么状态数据是从 <code>/api/status.json</code> 读的？</summary>
+        <p>
+          它就是站点自带的静态文件，真实路径为 <code>api/status.json</code>，
+          由静态服务器直接返回 HTTP 200，不依赖任何服务端重写规则，从不返回 4xx/5xx。
+          另有一份内容相同的 <code>data/status.json</code> 便于对照，你也可以直接打开
+          <a href="/data/status.json">/data/status.json</a> 查看原文。
+        </p>
+      </details>
+
+      <details>
+        <summary>3. 表单提交会真的发请求吗？</summary>
+        <p>不会。本站是纯前端演示：校验通过后在页面上给出成功提示，不发起任何网络请求。</p>
+      </details>
+
+      <details>
+        <summary>4. 页面会有卡顿吗？</summary>
+        <p>
+          不会。唯一的动画是 <code>requestAnimationFrame</code> 驱动的 200ms 有界进度条，
+          没有 <code>while</code> 阻塞循环，也没有长同步任务。
+        </p>
+      </details>
+
+      <details>
+        <summary>5. 出现报错怎么办？</summary>
+        <p>
+          先看浏览器控制台与网络面板：本站正常情况下既没有 error 级日志，
+          也没有失败请求。若确实异常，请通过<a href="/contact.html">联系表单</a>反馈。
+        </p>
+      </details>
+
+      <details>
+        <summary>6. 支持多语言吗？</summary>
+        <p>配置项 <code>locales</code> 支持多语言，默认启用 <code>zh-CN</code>。详见<a href="/guide.html#config">配置项</a>。</p>
+      </details>
+    </section>
+
+    <section class="panel">
+      <h2>排查速查表</h2>
+      <table>
+        <thead>
+          <tr><th>现象</th><th>可能原因</th><th>处理方式</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>页面样式丢失</td><td>样式表路径写错</td><td>确认引用的是 <code>/assets/site.css</code></td></tr>
+          <tr><td>状态一直显示"—"</td><td>状态 JSON 未随目录发布</td><td>确认 <code>data/status.json</code> 存在</td></tr>
+          <tr><td>表单提交无反应</td><td>必填项未通过校验</td><td>按字段下方的红色提示修正</td></tr>
+        </tbody>
+      </table>
+      <div class="toolbar">
+        <a class="btn" href="/contact.html">仍有疑问，联系我们</a>
+        <a class="btn btn--ghost" href="/getting-started.html">回到快速开始</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>© 2026 Clean Docs（演示用）</span>
+      <a href="/index.html">首页</a>
+      <a href="/guide.html">使用指南</a>
+      <a href="/getting-started.html">快速开始</a>
+      <a href="/contact.html">联系我们</a>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+# 统一换行符：仓库内一律使用 LF，检出到 Windows 时也不做 CRLF 转换，
+# 避免脚本类文件（.mjs/.py）在不同平台上产生无意义的整文件 diff。
+* text=auto eol=lf
+
+# 二进制资源不做文本处理
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.otf binary
+*.mp4 binary
+*.webm binary
+*.zip binary
+*.gz binary
+
+# 录像是交付物，体积较大但必须入库
+video/*.mp4 -text -diff

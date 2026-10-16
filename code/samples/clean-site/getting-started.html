@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>快速开始 — Clean Docs</title>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/index.html"><span class="logo__mark">C</span>Clean Docs</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/index.html">首页</a>
+        <a href="/guide.html">使用指南</a>
+        <a href="/getting-started.html" aria-current="page">快速开始</a>
+        <a href="/faq.html">常见问题</a>
+        <a href="/contact.html">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 id="hero-banner">5 分钟快速开始</h1>
+    <p class="muted">按顺序完成下面 4 步，就能把 Clean Docs 跑起来。</p>
+
+    <ol class="cards">
+      <li>
+        <h3>1. 准备目录</h3>
+        <p class="muted">把文档目录放在站点根目录下，保持相对路径引用。</p>
+      </li>
+      <li>
+        <h3>2. 写配置</h3>
+        <p class="muted">在根目录创建配置文件，填写 <code>name</code> 与 <code>version</code>。</p>
+      </li>
+      <li>
+        <h3>3. 校验</h3>
+        <p class="muted">运行校验，确认没有未解析的引用与失效链接。</p>
+      </li>
+      <li>
+        <h3>4. 发布</h3>
+        <p class="muted">产物是纯静态文件，任何静态服务器都能托管。</p>
+      </li>
+    </ol>
+
+    <section class="panel">
+      <h2>示例：校验并发布</h2>
+      <p class="muted">下面的命令只是文档文本，页面不会执行它们。</p>
+      <pre id="quickstart-cmd" style="background:#eef2f7;border-radius:8px;padding:12px;overflow:auto;"><code># 1. 校验文档引用
+cleandocs check --strict
+
+# 2. 生成静态站点
+cleandocs build --out ./dist
+
+# 3. 本地预览（任意静态服务器均可）
+npx serve ./dist</code></pre>
+      <div class="toolbar">
+        <button class="btn btn--ghost" type="button" data-copy="#quickstart-cmd">复制</button>
+        <a class="btn btn--ghost" href="/guide.html#config">查看配置项说明</a>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>起步检查清单</h2>
+      <table>
+        <thead>
+          <tr><th>检查项</th><th>通过标准</th><th>本页状态</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>页面可访问</td><td>HTTP 200</td><td><span class="muted">已满足</span></td></tr>
+          <tr><td>无失效链接</td><td>所有内部链接均可解析</td><td><span class="muted">已满足</span></td></tr>
+          <tr><td>无控制台报错</td><td>控制台没有 error 级别输出</td><td><span class="muted">已满足</span></td></tr>
+          <tr><td>主线程不阻塞</td><td>没有超过 200ms 的同步任务</td><td><span class="muted">已满足</span></td></tr>
+        </tbody>
+      </table>
+      <div class="toolbar">
+        <button class="btn btn--ghost" id="btn-run-demo" type="button">运行 200ms 有界示例</button>
+        <progress id="demo-progress" value="0" max="100" style="width:200px;"></progress>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>下一步</h2>
+      <ul>
+        <li>熟悉核心概念：<a href="/guide.html#concepts">使用指南 · 核心概念</a></li>
+        <li>遇到问题：<a href="/faq.html">常见问题</a></li>
+        <li>需要帮助：<a href="/contact.html">联系我们</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>© 2026 Clean Docs（演示用）</span>
+      <a href="/index.html">首页</a>
+      <a href="/guide.html">使用指南</a>
+      <a href="/faq.html">常见问题</a>
+      <a href="/contact.html">联系我们</a>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>

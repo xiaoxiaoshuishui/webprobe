@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>购物车 — Buggy Shop 演示商城</title>
+  <link rel="stylesheet" href="/assets/app.css" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/index.html"><span class="brand__dot"></span>Buggy Shop</a>
+      <nav class="nav">
+        <a href="/index.html">首页</a>
+        <a href="/product.html">商品详情</a>
+        <a href="/cart.html" aria-current="page">购物车</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>购物车</h1>
+
+    <section class="card">
+      <div class="kv"><span>机械键盘 K87 × <span id="qty-label">1</span></span><span id="line-total">¥329.00</span></div>
+      <div class="kv"><span>运费</span><span>¥0.00</span></div>
+      <div class="kv"><strong>合计</strong><strong id="cart-total">¥329.00</strong></div>
+
+      <div class="toolbar" style="margin-top:16px;">
+        <!-- BUG #3 console-error + BUG #4 http-error + BUG #8 security（假 token）的触发点 -->
+        <button class="btn" id="btn-checkout" type="button">提交订单</button>
+        <!-- BUG #7 unresponsive（有界 2.5s 阻塞）的触发点 -->
+        <button class="btn btn--ghost" id="btn-compute" type="button">计算优惠（阻塞 2.5s）</button>
+      </div>
+
+      <p class="muted" id="checkout-hint">尚未提交</p>
+      <p class="muted" id="api-status">接口未调用</p>
+    </section>
+
+    <section class="card">
+      <h2>优惠试算</h2>
+      <p class="muted">点击上面的「计算优惠」会同步阻塞主线程约 2.5 秒（有界，必然自行结束）。</p>
+      <p id="compute-result">等待计算</p>
+    </section>
+
+    <!--
+      BUG #5f resource-error: 购物车页的优惠券图标缺失（404）。
+      与首页/详情页不同的第三条资源失败，用来验证跨页面资源失败聚合。
+    -->
+    <img id="coupon-icon" src="/assets/icons/coupon.svg" alt="优惠券图标（文件缺失）" width="48" height="48" />
+  </main>
+
+  <footer class="footer">
+    <p>Buggy Shop 演示商城 · WebProbe 自检夹具 · <a href="/product.html">继续购物</a></p>
+  </footer>
+
+  <script src="/assets/analytics.js"></script>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+{
+  "id": "huya-live",
+  "name": "虎牙直播 Web 端",
+  "description": "虎牙直播浏览器端（https://www.huya.com）动态测试目标。平台以真实 Chromium 打开站点，遍历首页/分类页/视频页，执行声明式用户流程并对可交互元素做受控模糊测试，捕获未捕获异常、未处理 Promise 拒绝、接口 4xx/5xx、资源加载失败、DOM 渲染异常、主线程卡死与渲染进程崩溃。",
+  "kind": "remote",
+  "url": "https://www.huya.com/",
+  "entry": "/",
+  "viewport": { "width": 1440, "height": 900 },
+  "locale": "zh-CN",
+  "timezoneId": "Asia/Shanghai",
+  "colorScheme": "light",
+  "ignoreHTTPSErrors": true,
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "firstPartyDomains": ["huya.com", "msstatic.com"],
+
+  "budget": {
+    "maxPages": 10,
+    "maxActionsPerPage": 35,
+    "maxDurationMs": 300000,
+    "navigationTimeoutMs": 30000,
+    "actionTimeoutMs": 4000
+  },
+
+  "explore": {
+    "allowCrossOrigin": false,
+    "maxDepth": 2,
+    "urlPatterns": [
+      "https://www.huya.com/",
+      "https://www.huya.com/g**",
+      "https://www.huya.com/l",
+      "https://www.huya.com/m",
+      "https://www.huya.com/video/**"
+    ],
+    "denyUrlPatterns": [
+      "**/search**",
+      "**/login**",
+      "**/register**",
+      "**/pay**",
+      "**/cart**",
+      "**/logout**",
+      "**/u/**/setting**",
+      "**/help/**",
+      "**/jubao**",
+      "**/download**"
+    ]
+  },
+
+  "fuzz": {
+    "enabled": true,
+    "rounds": 40,
+    "seed": 20261016,
+    "aggressive": false,
+    "allowDestructive": false,
+    "dom": {
+      "click": true,
+      "type": true,
+      "select": true,
+      "scroll": true,
+      "hover": true,
+      "submit": true,
+      "keyboard": true,
+      "dragDrop": false
+    },
+    "selectors": [
+      "#hy-nav-category",
+      "#hy-nav-match",
+      "#J_hyHdNavItemGame",
+      "#J_hyHdNavItemShop",
+      ".game-live-item",
+      ".nav-expand-list a",
+      "#J_adBnM .ad-banner-close",
+      ".banner-close",
+      ".hy-nav-link-onlineGame"
+    ],
+    "payloads": [
+      "英雄联盟",
+      "a",
+      "",
+      "   ",
+      "🙂👨‍👩‍👧‍👦",
+      "'\"<script>alert(1)</script>",
+      "__proto__",
+      "../../../etc/passwd",
+      "99999999999999999999"
+    ]
+  },
+
+  "flows": [
+    {
+      "id": "header-nav",
+      "name": "顶部导航：展开「游戏分类」与赛事面板",
+      "urlPattern": "https://www.huya.com/",
+      "steps": [
+        { "action": "hover", "selector": "#hy-nav-category" },
+        { "action": "wait", "value": 700 },
+        { "action": "click", "selector": "#hy-nav-category" },
+        { "action": "wait", "value": 500 },
+        { "action": "hover", "selector": "#hy-nav-match" },
+        { "action": "wait", "value": 600 },
+        { "action": "click", "selector": "body" }
+      ]
+    },
+    {
+      "id": "search-suggest",
+      "name": "搜索框：输入关键词并操作联想下拉",
+      "urlPattern": "https://www.huya.com/",
+      "steps": [
+        { "action": "type", "selector": "#search-bar-input", "value": "英雄联盟" },
+        { "action": "wait", "value": 900 },
+        { "action": "keyboard", "selector": "#search-bar-input", "value": "ArrowDown" },
+        { "action": "wait", "value": 300 },
+        { "action": "keyboard", "selector": "#search-bar-input", "value": "Escape" },
+        { "action": "wait", "value": 300 },
+        { "action": "type", "selector": "#search-bar-input", "value": "" }
+      ]
+    },
+    {
+      "id": "ad-banner",
+      "name": "首页广告位：悬停并尝试关闭",
+      "urlPattern": "https://www.huya.com/",
+      "steps": [
+        { "action": "hover", "selector": "#J_adBnM" },
+        { "action": "wait", "value": 400 },
+        { "action": "click", "selector": "#J_adBnM .ad-banner-close" },
+        { "action": "wait", "value": 500 }
+      ]
+    },
+    {
+      "id": "live-card",
+      "name": "直播间卡片：悬停查看预览层",
+      "urlPattern": "https://www.huya.com/**",
+      "steps": [
+        { "action": "hover", "selector": ".game-live-item" },
+        { "action": "wait", "value": 1200 },
+        { "action": "hover", "selector": "body" }
+      ]
+    },
+    {
+      "id": "deep-scroll",
+      "name": "深度滚动：触发懒加载与吸顶逻辑",
+      "urlPattern": "https://www.huya.com/**",
+      "steps": [
+        { "action": "scroll", "selector": "window", "value": "bottom" },
+        { "action": "wait", "value": 1200 },
+        { "action": "scroll", "selector": "window", "value": "middle" },
+        { "action": "wait", "value": 600 },
+        { "action": "scroll", "selector": "window", "value": "top" },
+        { "action": "wait", "value": 400 }
+      ]
+    }
+  ],
+
+  "assertions": [
+    {
+      "id": "page-not-blank",
+      "kind": "function",
+      "expression": "document.body && document.body.innerText.trim().length > 20",
+      "severity": "high",
+      "title": "页面白屏或内容为空"
+    },
+    {
+      "id": "search-input-present",
+      "kind": "selector",
+      "selector": "#search-bar-input",
+      "urlPattern": "https://www.huya.com/",
+      "severity": "high",
+      "title": "首页顶部搜索框 #search-bar-input 缺失"
+    },
+    {
+      "id": "header-nav-present",
+      "kind": "selector",
+      "selector": ".duya-header-nav",
+      "urlPattern": "https://www.huya.com/",
+      "severity": "medium",
+      "title": "首页顶部导航栏缺失"
+    },
+    {
+      "id": "live-list-rendered",
+      "kind": "selector",
+      "selector": ".game-live-item",
+      "urlPattern": "https://www.huya.com/",
+      "severity": "high",
+      "title": "首页推荐直播间列表未渲染出卡片"
+    },
+    {
+      "id": "footer-present",
+      "kind": "selector",
+      "selector": ".huya-footer",
+      "urlPattern": "https://www.huya.com/",
+      "severity": "low",
+      "title": "首页页脚 .huya-footer 缺失"
+    },
+    {
+      "id": "no-error-page",
+      "kind": "not-selector",
+      "selector": ".error-page, .ssr-error, #js-error",
+      "severity": "high",
+      "title": "页面出现站点自身的错误占位层"
+    }
+  ],
+
+  "watch": {
+    "console": true,
+    "pageerror": true,
+    "requestfailed": true,
+    "httpErrorStatus": 400,
+    "thirdParty": "tag",
+    "ignoreConsolePatterns": [
+      "ResizeObserver loop",
+      "ResizeObserver loop completed with undelivered notifications",
+      "Non-Error promise rejection captured",
+      "third-party cookie",
+      "Deprecation",
+      "Unrecognized feature",
+      "document.domain mutation"
+    ]
+  },
+
+  "auth": { "type": "none" },
+
+  "notes": [
+    "本目标只做只读浏览与前端交互：明确禁止点击含「退出/注销/删除/支付/下单」语义的控件（allowDestructive=false），也不访问登录、支付、举报等路径。",
+    "站点页面为 SSR + 客户端 hydration，控制台中的 hydration mismatch、水合失败提示属于真实缺陷，不会被过滤。",
+    "跨域资源（a.msstatic.com 等 CDN）仍会被监控：它们的加载失败会记为资源加载失败，但不会作为新页面被爬取。",
+    "由于直播间播放器会持续拉流，urlPatterns 只保留首页、游戏分类、全部直播、手游站与视频站，避免把时间预算耗在流媒体解码上。"
+  ]
+}

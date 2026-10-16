@@ -1,0 +1,46 @@
+{
+  "name": "webprobe",
+  "version": "1.0.0",
+  "private": false,
+  "description": "WebProbe — 浏览器端动态软件测试平台 (browser-side dynamic software testing platform). Input: a directory holding the software under test. Behaviour: drive it in a real browser and capture every crash/error. Output: the bugs it found.",
+  "keywords": [
+    "software-testing",
+    "dynamic-analysis",
+    "fuzzing",
+    "browser",
+    "playwright",
+    "cdp",
+    "bug-finder"
+  ],
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "bin": {
+    "webprobe": "code/src/cli.mjs"
+  },
+  "scripts": {
+    "start": "node code/src/cli.mjs",
+    "run": "node code/src/cli.mjs run",
+    "doctor": "node code/src/cli.mjs doctor",
+    "selftest": "node code/src/cli.mjs selftest",
+    "test:ui": "node code/tools/test_ui_api.mjs",
+    "test": "node code/src/cli.mjs selftest && node code/tools/test_ui_api.mjs",
+    "huya": "node code/src/cli.mjs run --target code/targets/huya-live",
+    "ui": "node code/src/cli.mjs ui",
+    "fetch-ffmpeg": "node code/scripts/fetch-ffmpeg.mjs",
+    "install-browsers": "playwright install chromium"
+  },
+  "dependencies": {
+    "playwright-core": "^1.62.1"
+  },
+  "optionalDependencies": {
+    "ffmpeg-static": "^5.2.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "ffmpeg-static"
+    ]
+  }
+}

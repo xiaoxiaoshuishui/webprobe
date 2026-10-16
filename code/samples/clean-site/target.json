@@ -1,0 +1,27 @@
+{
+  "id": "clean-site",
+  "name": "Clean Docs 站点",
+  "kind": "local",
+  "dir": ".",
+  "entry": "/index.html",
+  "viewport": { "width": 1440, "height": 900 },
+  "locale": "zh-CN",
+  "timezoneId": "Asia/Shanghai",
+  "budget": { "maxPages": 12, "maxActionsPerPage": 60, "maxDurationMs": 240000, "actionTimeoutMs": 4000 },
+  "explore": { "allowCrossOrigin": false, "urlPatterns": ["**/*"], "denyUrlPatterns": [] },
+  "fuzz": {
+    "enabled": true,
+    "rounds": 40,
+    "seed": 20261016,
+    "dom": { "click": true, "type": true, "select": true, "scroll": true, "hover": true, "submit": true, "keyboard": true },
+    "selectors": ["#btn-refresh-status", "#btn-submit-contact", "#btn-reset-contact", "#btn-run-demo"]
+  },
+  "assertions": [
+    { "id": "hero-visible", "kind": "selector", "selector": "#hero-banner", "urlPattern": "**/index.html", "severity": "high", "title": "首页主视觉 #hero-banner 缺失" },
+    { "id": "status-badge-present", "kind": "selector", "selector": "#status-badge", "urlPattern": "**/index.html", "severity": "medium", "title": "首页服务状态徽章缺失" },
+    { "id": "contact-form-present", "kind": "selector", "selector": "#btn-submit-contact", "urlPattern": "**/contact.html", "severity": "medium", "title": "联系表单提交按钮缺失" },
+    { "id": "nav-guide-present", "kind": "selector", "selector": "#hero-banner", "urlPattern": "**/guide.html", "severity": "low", "title": "使用指南页标题容器缺失" }
+  ],
+  "watch": { "console": true, "pageerror": true, "requestfailed": true, "httpErrorStatus": 400, "ignorePatterns": [] },
+  "auth": { "type": "none" }
+}

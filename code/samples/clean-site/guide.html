@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>使用指南 — Clean Docs</title>
+  <link rel="stylesheet" href="/assets/site.css" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="/index.html"><span class="logo__mark">C</span>Clean Docs</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="/index.html">首页</a>
+        <a href="/guide.html" aria-current="page">使用指南</a>
+        <a href="/getting-started.html">快速开始</a>
+        <a href="/faq.html">常见问题</a>
+        <a href="/contact.html">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <h1 id="hero-banner">使用指南</h1>
+    <p class="muted">本节覆盖核心概念、配置项与常见用法。所有示例代码都是静态文本，不会执行。</p>
+
+    <div class="grid" style="grid-template-columns: 220px 1fr; align-items: start;">
+      <nav class="panel" aria-label="目录">
+        <h2 style="margin-top:0;font-size:15px;">本页目录</h2>
+        <ol class="toc">
+          <li><a href="#concepts">核心概念</a></li>
+          <li><a href="#config">配置项</a></li>
+          <li><a href="#patterns">最佳实践</a></li>
+          <li><a href="#errors">错误处理</a></li>
+        </ol>
+      </nav>
+
+      <div>
+        <section class="panel" id="concepts">
+          <h2>核心概念</h2>
+          <p>Clean Docs 把文档拆成三个层次，便于按需查阅：</p>
+          <ul>
+            <li><b>指南（Guide）</b> — 面向任务的操作说明，回答"怎么做"。</li>
+            <li><b>参考（Reference）</b> — 面向字段的精确描述，回答"是什么"。</li>
+            <li><b>示例（Samples）</b> — 可直接对照的最小可运行片段。</li>
+          </ul>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <pre id="sample-config" style="flex:1;background:#eef2f7;border-radius:8px;padding:12px;margin:0;overflow:auto;"><code>{
+  "name": "clean-docs",
+  "version": "1.4.2",
+  "strict": true
+}</code></pre>
+            <button class="btn btn--ghost" type="button" data-copy="#sample-config">复制</button>
+          </div>
+        </section>
+
+        <section class="panel" id="config">
+          <h2>配置项</h2>
+          <table>
+            <thead>
+              <tr><th>字段</th><th>类型</th><th>默认值</th><th>说明</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><code>name</code></td><td>string</td><td>—</td><td>站点标识，用于生成导航与面包屑。</td></tr>
+              <tr><td><code>version</code></td><td>string</td><td><code>1.0.0</code></td><td>语义化版本号，显示在页脚。</td></tr>
+              <tr><td><code>strict</code></td><td>boolean</td><td><code>false</code></td><td>开启后，文档中未解析的引用会导致构建失败。</td></tr>
+              <tr><td><code>locales</code></td><td>string[]</td><td><code>["zh-CN"]</code></td><td>启用的语言列表。</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="panel" id="patterns">
+          <h2>最佳实践</h2>
+          <div class="toolbar" style="margin-bottom:12px;">
+            <button class="btn btn--ghost" type="button" data-tab="task" aria-selected="true">按任务</button>
+            <button class="btn btn--ghost" type="button" data-tab="role" aria-selected="false">按角色</button>
+          </div>
+          <div data-tab-panel="task">
+            <ul>
+              <li>一个页面只解决一类任务，标题用动词开头。</li>
+              <li>示例代码保持可复制粘贴，不要省略导入语句。</li>
+              <li>每个结论都给出可验证的判断标准。</li>
+            </ul>
+          </div>
+          <div data-tab-panel="role" hidden>
+            <ul>
+              <li>新用户：从<a href="/getting-started.html">快速开始</a>进入。</li>
+              <li>集成方：先读配置项，再读错误处理。</li>
+              <li>运维：关注服务状态与版本变更记录。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="panel" id="errors">
+          <h2>错误处理</h2>
+          <p>本站点自身的脚本遵循同一套约定：</p>
+          <ul>
+            <li>异步链路一定以 <code>.catch()</code> 收尾，绝不产生未处理拒绝。</li>
+            <li>可预期的失败用界面提示表达，而不是打印 <code>console.error</code>。</li>
+            <li>不阻塞主线程：一切耗时操作都拆成有界的小步骤。</li>
+          </ul>
+          <div class="toolbar">
+            <button class="btn btn--ghost" id="btn-run-demo" type="button">运行 200ms 有界示例</button>
+            <progress id="demo-progress" value="0" max="100" style="width:200px;"></progress>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>© 2026 Clean Docs（演示用）</span>
+      <a href="/index.html">首页</a>
+      <a href="/getting-started.html">快速开始</a>
+      <a href="/faq.html">常见问题</a>
+      <a href="/contact.html">联系我们</a>
+    </div>
+  </footer>
+
+  <script src="/assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>机械键盘 K87 — Buggy Shop 演示商城</title>
+
+  <link rel="stylesheet" href="/assets/app.css" />
+  <!--
+    BUG #5d resource-error: 该样式表文件不存在，静态服务器返回 404。
+    它是一次"静态资源 404"，与 fetch/XHR 的接口 404 相互独立。
+  -->
+  <link rel="stylesheet" href="/assets/theme-dark.css" />
+  <link rel="icon" href="/favicon.ico" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="/index.html"><span class="brand__dot"></span>Buggy Shop</a>
+      <nav class="nav">
+        <a href="/index.html">首页</a>
+        <a href="/product.html" aria-current="page">商品详情</a>
+        <a href="/cart.html">购物车</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="muted"><a href="/index.html">首页</a> / 键鼠外设 / 机械键盘 K87</nav>
+
+    <section class="card">
+      <div class="grid" style="grid-template-columns: 320px 1fr;">
+        <div>
+          <!--
+            BUG #5e resource-error: 商品缩略图缺失（404）。
+            与首页的 /assets/missing-banner.png 是两个不同的缺失资源，
+            便于验证 "同一资源重复失败" 与 "多种资源失败" 两种聚合行为。
+          -->
+          <img id="product-thumb" src="/assets/products/k87.png" alt="机械键盘 K87 商品图（文件缺失）"
+               width="320" height="240" style="width:100%;border:1px solid #e5e7eb;border-radius:10px;" />
+        </div>
+        <div>
+          <h1>机械键盘 K87</h1>
+          <p class="muted">87 键紧凑布局 · 红轴 · 双模无线 · PBT 键帽</p>
+          <p class="product__price" style="font-size:22px;">¥329.00</p>
+
+          <!-- BUG #6 dom-anomaly / template leak（第二个透出点，跨页面验证聚合） -->
+          <p>
+            <span class="badge" id="sku-badge">SKU：{{product.sku}} ｜ 库存：undefined</span>
+          </p>
+
+          <div class="kv"><span>已选规格</span><span>黑色 / 红轴</span></div>
+          <div class="kv"><span>配送</span><span>顺丰包邮</span></div>
+
+          <div class="toolbar" style="margin-top:16px;">
+            <label for="qty" class="muted">数量</label>
+            <select id="qty">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="5">5</option>
+            </select>
+            <!-- BUG #2 unhandled-rejection 的触发点 -->
+            <button class="btn" id="btn-add-cart" type="button">加入购物车</button>
+            <a class="btn btn--ghost" href="/cart.html">去结算</a>
+          </div>
+
+          <p class="muted" id="cart-hint">尚未加入购物车</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>商品参数</h2>
+      <div class="kv"><span>轴体</span><span>Cherry MX 红轴</span></div>
+      <div class="kv"><span>连接</span><span>USB-C / 2.4G 无线 / 蓝牙 5.1</span></div>
+      <div class="kv"><span>电池</span><span>4000mAh</span></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Buggy Shop 演示商城 · WebProbe 自检夹具 · <a href="/index.html">返回首页</a></p>
+  </footer>
+
+  <script src="/assets/analytics.js"></script>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

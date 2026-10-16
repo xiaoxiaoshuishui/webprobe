@@ -1,0 +1,5 @@
+# pnpm reads dependency build-script permissions from here (pnpm >= 10).
+# ffmpeg-static needs its install script so it downloads the ffmpeg binary that
+# the platform uses to turn a CDP screencast into an .mp4 recording.
+allowBuilds:
+  ffmpeg-static: true

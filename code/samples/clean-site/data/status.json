@@ -1,0 +1,1 @@
+{"state":"ok","version":"1.4.2","uptimeSeconds":86400,"generatedAt":"2026-10-16T02:00:00Z","services":[{"name":"api","status":"ok","latencyMs":42},{"name":"docs","status":"ok","latencyMs":11},{"name":"search","status":"ok","latencyMs":73}]}

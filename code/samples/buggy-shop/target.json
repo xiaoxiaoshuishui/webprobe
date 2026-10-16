@@ -1,0 +1,27 @@
+{
+  "id": "buggy-shop",
+  "name": "Buggy Shop 演示商城",
+  "kind": "local",
+  "dir": ".",
+  "entry": "/index.html",
+  "viewport": { "width": 1440, "height": 900 },
+  "locale": "zh-CN",
+  "timezoneId": "Asia/Shanghai",
+  "budget": { "maxPages": 12, "maxActionsPerPage": 60, "maxDurationMs": 240000, "actionTimeoutMs": 4000 },
+  "explore": { "allowCrossOrigin": false, "urlPatterns": ["**/*"], "denyUrlPatterns": [] },
+  "fuzz": {
+    "enabled": true,
+    "rounds": 40,
+    "seed": 20261016,
+    "dom": { "click": true, "type": true, "select": true, "scroll": true, "hover": true, "submit": true, "keyboard": true },
+    "selectors": ["#btn-buy-now", "#btn-add-cart", "#btn-checkout", "#btn-compute"]
+  },
+  "assertions": [
+    { "id": "hero-visible", "kind": "selector", "selector": "#hero-banner", "urlPattern": "**/index.html", "severity": "high", "title": "首页主视觉 #hero-banner 缺失" },
+    { "id": "product-thumb-present", "kind": "selector", "selector": "#product-thumb", "urlPattern": "**/product.html", "severity": "medium", "title": "商品主图节点 #product-thumb 缺失" },
+    { "id": "no-template-leak-index", "kind": "text", "selector": "#user-badge", "urlPattern": "**/index.html", "severity": "medium", "title": "首页徽章透出模板变量 {{userName}}/undefined", "text": "{{userName}}" },
+    { "id": "checkout-button-present", "kind": "selector", "selector": "#btn-checkout", "urlPattern": "**/cart.html", "severity": "low", "title": "购物车结算按钮 #btn-checkout 缺失" }
+  ],
+  "watch": { "console": true, "pageerror": true, "requestfailed": true, "httpErrorStatus": 400, "ignorePatterns": [] },
+  "auth": { "type": "none" }
+}

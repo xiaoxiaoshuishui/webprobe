@@ -1,0 +1,19 @@
+# 运行产物：报告、证据、录像（每次运行都会生成）
+runs/
+
+# 依赖与包管理器缓存
+node_modules/
+.pnpm-store/
+
+# 日志
+*.log
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# 临时浏览器 profile
+.webprobe-profile/

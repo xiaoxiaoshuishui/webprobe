@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WebProbe · 浏览器端动态软件测试平台</title>
+  <!-- 唯一的样式文件，本地相对路径，无 CDN / 无字体外链。 -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#mainRegion">跳到主要内容</a>
+  <!-- ============================ 顶栏 ============================ -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">WB</span>
+      <div class="brand-text">
+        <h1>WebProbe<span class="brand-sub">浏览器端动态软件测试平台</span></h1>
+        <p class="brand-meta" id="brandMeta">正在连接服务…</p>
+      </div>
+    </div>
+    <div class="topbar-controls">
+      <label class="field" for="targetSelect"><span>测试目标</span>
+        <select id="targetSelect" aria-label="选择测试目标"></select>
+      </label>
+      <button id="startBtn" class="btn btn-primary" type="button">▶ 开始测试</button>
+      <span id="runStatus" class="run-status" role="status" hidden>
+        <span class="spinner" aria-hidden="true"></span>运行中…
+      </span>
+      <label class="field" for="runSelect"><span>运行历史</span>
+        <select id="runSelect" aria-label="选择历史运行记录"></select>
+      </label>
+    </div>
+  </header>
+  <!-- 统一的内联错误提示条：任何 fetch 失败都写到这里，页面永不空白。 -->
+  <div id="errorBanner" class="banner" role="alert" hidden></div>
+  <main class="layout" id="mainRegion">
+    <!-- 空状态：/api/runs 为空或 404 时显示 -->
+    <section id="emptyState" class="empty card" hidden>
+      <h2>还没有测试记录</h2>
+      <p>还没有测试记录，点击「开始测试」。</p>
+      <button id="emptyStartBtn" class="btn btn-primary" type="button">▶ 开始测试</button>
+    </section>
+    <!-- 以下内容全部由 app.js 依据 RunReport 渲染 -->
+    <div id="dashboard" hidden>
+      <section class="card" aria-labelledby="summaryHeading">
+        <h2 id="summaryHeading" class="card-title">概览</h2>
+        <div id="summaryCards" class="cards"></div>
+      </section>
+      <section class="grid-2">
+        <div class="card">
+          <h2 class="card-title">问题分布（按严重级）</h2>
+          <div id="severityChart" class="bars"></div>
+        </div>
+        <div class="card">
+          <h2 class="card-title">问题分布（按类型）</h2>
+          <div class="donut-wrap">
+            <svg id="kindDonut" class="donut" viewBox="0 0 140 140" role="img" aria-label="按类型分布环形图"></svg>
+            <ul id="kindLegend" class="legend"></ul>
+          </div>
+        </div>
+        <div class="card">
+          <h2 class="card-title">运行时间</h2>
+          <div id="timeInfo" class="time-info"></div>
+        </div>
+        <div class="card">
+          <h2 class="card-title">导出</h2>
+          <div class="export-row">
+            <button id="downloadJsonBtn" class="btn" type="button">下载 JSON</button>
+            <button id="copyMdBtn" class="btn" type="button">复制 Markdown 摘要</button>
+          </div>
+          <p class="hint">若浏览器不支持剪贴板 API，Markdown 摘要会显示在下方文本框中，可手动复制。</p>
+          <textarea id="mdFallback" class="md-fallback" rows="6" readonly aria-label="Markdown 摘要（手动复制）" hidden></textarea>
+        </div>
+      </section>
+      <section class="card" aria-labelledby="findingsHeading">
+        <h2 id="findingsHeading" class="card-title">
+          问题列表 <span id="findingsCount" class="count-pill">0</span>
+        </h2>
+        <div class="filters">
+          <input id="filterText" type="search" placeholder="搜索标题 / 消息 / URL…" aria-label="按文本搜索问题" />
+          <select id="filterSeverity" aria-label="按严重级筛选"></select>
+          <select id="filterKind" aria-label="按类型筛选"></select>
+          <button id="resetFiltersBtn" class="btn btn-ghost" type="button">重置筛选</button>
+        </div>
+        <div class="table-wrap">
+          <table class="findings-table">
+            <thead>
+              <tr>
+                <th scope="col" data-sort="severity" class="sortable" aria-sort="none">严重级<span class="arrow" aria-hidden="true"></span></th>
+                <th scope="col" data-sort="kind" class="sortable" aria-sort="none">类型<span class="arrow" aria-hidden="true"></span></th>
+                <th scope="col">标题</th>
+                <th scope="col">URL</th>
+                <th scope="col" data-sort="occurrences" class="sortable num" aria-sort="none">次数<span class="arrow" aria-hidden="true"></span></th>
+                <th scope="col" data-sort="firstSeenAt" class="sortable" aria-sort="none">首次出现<span class="arrow" aria-hidden="true"></span></th>
+              </tr>
+            </thead>
+            <tbody id="findingsBody"></tbody>
+          </table>
+        </div>
+        <p id="noFindings" class="empty-inline" hidden>没有符合条件的问题。</p>
+      </section>
+      <!-- 默认折叠：覆盖率与时间线 -->
+      <details id="coverageSection" class="card details">
+        <summary class="card-title">覆盖率与时间线</summary>
+        <div id="coverageStats" class="cards cards-sm"></div>
+        <div class="coverage-grid">
+          <div><h3>已访问（visited）</h3><ul id="coverageVisited" class="link-list"></ul></div>
+          <div><h3>新发现（discovered）</h3><ul id="coverageDiscovered" class="link-list"></ul></div>
+          <div><h3>已跳过（skipped）</h3><ul id="coverageSkipped" class="link-list"></ul></div>
+        </div>
+        <h3>时间线</h3>
+        <ol id="timelineList" class="timeline"></ol>
+      </details>
+    </div>
+  </main>
+  <!-- ====================== 问题详情抽屉 ====================== -->
+  <div id="drawerBackdrop" class="backdrop" hidden></div>
+  <aside id="detailPanel" class="drawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle" hidden>
+    <div class="drawer-head">
+      <h2 id="detailTitle">问题详情</h2>
+      <button id="detailClose" class="icon-btn" type="button" aria-label="关闭详情面板">✕</button>
+    </div>
+    <div id="detailBody" class="drawer-body"></div>
+  </aside>
+  <!-- ========================= 灯箱 ========================= -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="证据截图预览" hidden>
+    <button id="lightboxClose" class="icon-btn lightbox-close" type="button" aria-label="关闭图片预览">✕</button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
