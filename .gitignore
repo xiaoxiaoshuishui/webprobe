@@ -17,3 +17,10 @@ Thumbs.db
 
 # 临时浏览器 profile
 .webprobe-profile/
+
+# 开发期抽帧核对用的图片（由录像按需生成，不入库）
+tools/frames/
+tools/seq*/
+tools/v/
+tools/vf/
+tools/fin/
