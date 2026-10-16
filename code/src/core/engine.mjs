@@ -28,6 +28,7 @@ import {
 } from './detectors.mjs';
 import { DISCOVER_SCRIPT, planActions } from './fuzzer.mjs';
 import { Recorder } from './recorder.mjs';
+import { hudInitScript, renderIntroCard, renderOutroCard } from './hud.mjs';
 import { PLATFORM, SEVERITY_ORDER, makeRunReport } from './schema.mjs';
 import { writeReportFiles } from './reporter.mjs';
 import {
@@ -75,6 +76,14 @@ export async function runTarget(target, options = {}) {
     flows = true,
     keepVideo = true,
     fuzz: fuzzOverride,
+    /**
+     * Draw the platform's own status panel, findings feed and element
+     * highlights into the page under test, so the screen recording is
+     * self-explanatory. See hud.mjs for why it is appended outside <body>.
+     */
+    hud = true,
+    introSeconds = 5,
+    outroSeconds = 13,
     knownSignatures = new Set(),
     onProgress = null,
   } = options;
@@ -155,9 +164,121 @@ export async function runTarget(target, options = {}) {
   report.browser = { ...browser.meta, headless };
   timeline('browser', `浏览器已启动：${browser.meta.label ?? browser.meta.executablePath ?? browser.meta.channel}`);
 
+  // The overlay must be installed before any page is created so it survives
+  // every navigation of the run.
+  if (hud) {
+    try {
+      await browser.context.addInitScript(hudInitScript);
+    } catch (err) {
+      logger.debug(`HUD 注入失败：${err.message.split('\n')[0]}`);
+    }
+  }
+
+  /** Push a state change into the page's overlay (never fatal). */
+  const hudCall = async (method, payload) => {
+    if (!hud) return;
+    const page = currentPage;
+    if (!page || page.isClosed()) return;
+    try {
+      // Errors are *reported*, not swallowed: a silently broken overlay would
+      // look exactly like a working one until someone watched the recording.
+      const problem = await page.evaluate(
+        ({ m, p }) => {
+          try {
+            if (!window.__webprobeHud) return 'no overlay API on this document';
+            if (typeof window.__webprobeHud[m] !== 'function') return `no such method: ${m}`;
+            window.__webprobeHud[m](p);
+            return '';
+          } catch (e) {
+            return `threw: ${(e && e.message) || e}`;
+          }
+        },
+        { m: method, p: payload },
+      );
+      if (problem) {
+        // A click that starts a navigation destroys the execution context before
+        // the evaluate can return. That race is normal, not a defect.
+        if (!/Execution context was destroyed/i.test(problem)) {
+          hudErrors.push(`${method}: ${problem}`);
+          logger.debug(`  HUD ${method} → ${problem}`);
+        }
+      }
+    } catch (err) {
+      if (!/Execution context was destroyed|Target page, context or browser has been closed/i.test(err.message)) {
+        hudErrors.push(`${method}: ${err.message.split('\n')[0]}`);
+        logger.debug(`  HUD ${method} evaluate failed：${err.message.split('\n')[0]}`);
+      }
+    }
+  };
+
+  const hudStats = () => ({
+    pages: ctx.stats.pagesVisited,
+    pagesMax: maxPages,
+    actions: ctx.stats.actionsExecuted,
+    requests: ctx.collector?.networkLog.length ?? 0,
+    failed: ctx.collector?.failedRequests.length ?? 0,
+    findings: ctx.book.size,
+  });
+
+  /** Compact form of a finding, as the overlay needs it. */
+  const hudFinding = (f) => {
+    let selector = f.step?.selector || f.context?.selector || '';
+    if (selector.includes(',')) selector = selector.split(',')[0].trim();
+    return {
+      id: f.id,
+      severity: f.severity,
+      kindLabel: f.kindLabel,
+      title: truncate(f.title, 96),
+      occurrences: f.occurrences,
+      selector,
+    };
+  };
+
+  /**
+   * Re-establish the whole overlay on the document that is loaded right now.
+   *
+   * The overlay is part of the page, so every navigation wipes it: counters,
+   * elapsed time and — most importantly — the findings feed. Re-sending the
+   * accumulated state after each navigation is what makes the recording show
+   * the complete story instead of only what happened on the current page.
+   */
+  const syncHud = async ({ action, keepAction = false } = {}) => {
+    if (!hud) return;
+    const payload = {
+      target: `${target.name} — ${target.entryUrl}`,
+      elapsedMs: Date.now() - ctx.startedAt,
+      findings: ctx.book.all().map(hudFinding),
+      stats: hudStats(),
+    };
+    if (!keepAction) payload.action = action ?? `就绪：${urlLabel(currentPage?.url() || target.entryUrl)}`;
+    await hudCall('applyState', payload);
+  };
+
+  /**
+   * Single place a newly discovered defect is surfaced: the run timeline, the
+   * terminal, and — crucially — the on-page overlay so it lands in the
+   * recording. Also highlights the offending element when one is known.
+   */
+  const announce = (stored) => {
+    if (!stored) return;
+    timeline('finding', `发现 [${stored.severity}] ${stored.title}`, {
+      kind: stored.kind,
+      signature: stored.signature,
+    });
+    logger.raw(
+      `  ${logger.paint(severityColor(stored.severity), `● ${stored.severity.toUpperCase().padEnd(8)}`)}` +
+      `${truncate(stored.title, 110)}`,
+    );
+    // A CSS selector to box on screen: the action that triggered it, else the
+    // element the DOM audit blamed.
+    hudCall('pushFinding', hudFinding(stored));
+  };
+
   let recorder = null;
   let currentPage = null;
   let monitor = null;
+  /** Overlay failures, reported at the end so they cannot hide silently. */
+  const hudErrors = [];
 
   const closePage = async () => {
     if (!currentPage) return;
@@ -219,10 +340,7 @@ export async function runTarget(target, options = {}) {
         url, step: { action: label, url }, target,
       })) {
         const stored = ctx.book.add(f);
-        if (stored && stored.occurrences === 1) {
-          timeline('finding', `发现 [${stored.severity}] ${stored.title}`, { kind: stored.kind });
-          logger.raw(`  ${logger.paint(severityColor(stored.severity), `● ${stored.severity.toUpperCase().padEnd(8)}`)}${truncate(stored.title, 110)}`);
-        }
+        if (stored && stored.occurrences === 1) announce(stored);
       }
       if (anomalyCount) logger.debug(`  DOM 审计：${anomalyCount} 项异常，${relevant.length} 项独立上报`);
     } catch (err) {
@@ -398,15 +516,7 @@ export async function runTarget(target, options = {}) {
       if (!stored) continue;
       fresh++;
       const isNew = stored.occurrences === (finding.occurrences || 1);
-      if (isNew) {
-        timeline('finding', `发现 [${stored.severity}] ${stored.title}`, {
-          kind: stored.kind, signature: stored.signature,
-        });
-        logger.raw(
-          `  ${logger.paint(severityColor(stored.severity), `● ${stored.severity.toUpperCase().padEnd(8)}`)}` +
-          `${truncate(stored.title, 110)}`,
-        );
-      }
+      if (isNew) announce(stored);
     }
     return fresh;
   };
@@ -520,6 +630,30 @@ export async function runTarget(target, options = {}) {
       ctx.recorder = recorder;
       await recorder.start(page);
     }
+
+    // Title card: the recording opens by stating what is about to be tested, so
+    // a viewer needs no other context.
+    if (hud && introSeconds > 0) {
+      try {
+        await page.evaluate(
+          (html) => {
+            if (!window.__webprobeHud) throw new Error('overlay API unavailable on this document');
+            window.__webprobeHud.showCard(html);
+          },
+          renderIntroCard({ target, config: report.config, browser: browser.meta }),
+        );
+        // Force one compositor frame immediately: on a still page the very first
+        // paint of the card can otherwise be missed by the screencast.
+        await page.screenshot({ type: 'jpeg', quality: 30 }).catch(() => {});
+        await sleep(introSeconds * 1000);
+        await page.evaluate(() => window.__webprobeHud && window.__webprobeHud.hideCard());
+        timeline('intro', '开场信息卡已展示');
+      } catch (err) {
+        logger.warn(`开场卡显示失败：${err.message.split('\n')[0]}`);
+      }
+    }
+
+    await syncHud({ action: '开始动态测试…' });
     timeline('start', '开始动态测试');
 
     while (queue.length > 0) {
@@ -551,6 +685,8 @@ export async function runTarget(target, options = {}) {
 
       logger.step(`[${ctx.stats.pagesVisited + 1}/${maxPages}] 打开 ${urlLabel(url)}`);
       timeline('goto', `打开 ${url}`, { depth });
+      await hudCall('setAction', `打开页面 ${urlLabel(url)}（第 ${ctx.stats.pagesVisited + 1}/${maxPages} 页）`);
+      await hudCall('clearHighlight');
 
       let navigated = false;
       try {
@@ -580,6 +716,10 @@ export async function runTarget(target, options = {}) {
       ctx.coverage.visited.push(url);
       if (!navigated) continue;
 
+      // The navigation replaced the document, and with it the overlay: restore
+      // the header, counters and the accumulated findings feed before going on.
+      await syncHud({ action: `已加载 ${urlLabel(page.url())} — 开始静态审计…` });
+
       // --- passive observations -------------------------------------------
       await drainSignals();
 
@@ -589,6 +729,7 @@ export async function runTarget(target, options = {}) {
 
       // --- DOM audit + declared assertions --------------------------------
       await auditPage(page, ctx.collector, 'audit');
+      await hudCall('setAction', `静态审计完成 — 开始交互与模糊测试`);
 
       // --- declared flows (scripted user journeys) -------------------------
       if (flows && Array.isArray(target.flows)) {
@@ -599,6 +740,7 @@ export async function runTarget(target, options = {}) {
           for (const stepDef of flow.steps || []) {
             if (Date.now() > ctx.deadline) break;
             const action = { ...stepDef, reason: `flow:${flow.id}` };
+            await hudCall('setAction', `声明式流程「${flow.name || flow.id}」：${describeAction(action, 0, 0).replace(/^\[0\/0\] /, '')}`);
             try {
               const step = await runAction(page, action);
               ctx.steps.push(step);
@@ -666,6 +808,7 @@ export async function runTarget(target, options = {}) {
             index: ctx.steps.length + 1, action: action.action,
             selector: action.selector, value: action.value ?? null, url: page.url(),
           });
+          await hudCall('setAction', describeAction(action, i + 1, budget));
           try {
             const step = await runAction(page, action);
             ctx.steps.push(step);
@@ -691,6 +834,11 @@ export async function runTarget(target, options = {}) {
               if (!ctx.capturedSignatures.has(f.signature)) await captureEvidence(page, f);
             }
           }
+          // Re-send the whole overlay state periodically. A site's own
+          // client-side routing (or any reload) replaces the document and with
+          // it the overlay, so restoring state only after our own navigations
+          // left the panel showing an empty feed for long stretches.
+          if (i % 8 === 7) await syncHud({ keepAction: true });
 
           // A click may have navigated us somewhere new.
           const nowUrl = page.url();
@@ -721,6 +869,7 @@ export async function runTarget(target, options = {}) {
       }
 
       const elapsed = Date.now() - ctx.startedAt;
+      await syncHud({ keepAction: true });
       const last = ctx.timeline[ctx.timeline.length - 1];
       if (last?.type !== 'finding') {
         logger.debug(`  页面完成，用时 ${formatDuration(elapsed)}，累计 ${ctx.book.size} 个问题`);
@@ -736,6 +885,65 @@ export async function runTarget(target, options = {}) {
     timeline('error', ctx.abortReason);
   } finally {
     /* ------------------------------------------------------- teardown */
+    // Finalise *before* teardown so the closing card can show real finding ids
+    // and the verdict the viewer needs — this is what makes the recording
+    // self-contained rather than a silent tour of pages.
+    const finalFindings = ctx.book.finalize();
+
+    // Proof that the overlay really did its job, recorded in the report rather
+    // than inferred from whether the recording "looks right".
+    if (hud && currentPage && !currentPage.isClosed()) {
+      try {
+        ctx.hudState = await currentPage.evaluate(() => {
+          const root = document.getElementById('__webprobe_hud');
+          return {
+            rootPresent: !!root,
+            feedRows: root ? root.querySelectorAll('.wp-row').length : 0,
+            feedText: root ? (root.querySelector('.wp-findings')?.textContent || '').slice(0, 120) : '',
+            statsText: root ? (root.querySelector('.wp-stats')?.textContent || '').slice(0, 120) : '',
+            actionText: root ? (root.querySelector('.wp-action')?.textContent || '').slice(0, 120) : '',
+            cardPresent: !!document.getElementById('__webprobe_card'),
+          };
+        });
+      } catch { /* page gone */ }
+    }
+    if (hud && outroSeconds > 0 && currentPage && !currentPage.isClosed()) {
+      try {
+        const summary = report;
+        summary.stats = {
+          ...summary.stats,
+          pagesVisited: ctx.stats.pagesVisited,
+          actionsExecuted: ctx.stats.actionsExecuted,
+          requests: ctx.collector?.networkLog.length ?? 0,
+          failedRequests: ctx.collector?.failedRequests.length ?? 0,
+          findings: finalFindings.length,
+          bySeverity: countBy(finalFindings, 'severity'),
+          firstPartyFindings: finalFindings.filter((f) => f.party === 'first-party').length,
+          thirdPartyFindings: finalFindings.filter((f) => f.party === 'third-party').length,
+        };
+        summary.durationMs = Date.now() - ctx.startedAt;
+        summary.popups = {
+          audited: popups.audited,
+          skipped: popups.skipped,
+        };
+        await currentPage.evaluate(
+          (html) => {
+            if (!window.__webprobeHud) throw new Error('overlay API unavailable on this document');
+            window.__webprobeHud.showCard(html);
+          },
+          renderOutroCard({
+            report: summary,
+            findings: finalFindings,
+            runDir: path.relative(process.cwd(), runDir),
+          }),
+        );
+        timeline('outro', `展示测试结果卡（${finalFindings.length} 个缺陷）`);
+        await currentPage.screenshot({ type: 'jpeg', quality: 30 }).catch(() => {});
+        await sleep(outroSeconds * 1000);
+      } catch (err) {
+        logger.warn(`收尾卡显示失败：${err.message.split('\n')[0]}`);
+      }
+    }
     await closePage();
     if (recorder) {
       ctx.recorderResult = await recorder.stop({ fileName: `${runId}.mp4` });
@@ -819,6 +1027,11 @@ export async function runTarget(target, options = {}) {
     skipped: popups.skipped,
     urls: [...new Set(popups.urls)],
   };
+  report.hud = {
+    enabled: hud,
+    errors: hudErrors.slice(-20),
+    stateAtEnd: ctx.hudState ?? null,
+  };
 
   await writeReportFiles(report, { runDir, artifactsDir, logger, target });
 
@@ -837,6 +1050,23 @@ export async function runTarget(target, options = {}) {
 
 function severityColor(sev) {
   return { critical: 'red', high: 'red', medium: 'yellow', low: 'blue', info: 'grey' }[sev] ?? 'reset';
+}
+
+/** One-line description of an action, for the on-page status line. */
+function describeAction(action, index, total) {
+  const label = action.label ? `（${truncate(action.label, 26)}）` : '';
+  const head = `[${index}/${total}]`;
+  switch (action.action) {
+    case 'click': return `${head} 点击 ${action.selector}${label}`;
+    case 'type': return `${head} 在 ${action.selector} 输入 ${JSON.stringify(truncate(String(action.value ?? ''), 24))}`;
+    case 'select': return `${head} 在 ${action.selector} 选择 ${action.value}`;
+    case 'hover': return `${head} 悬停 ${action.selector}${label}`;
+    case 'keyboard': return `${head} 在 ${action.selector} 按下 ${action.value}`;
+    case 'scroll': return `${head} 滚动 ${action.selector} → ${action.value}`;
+    case 'submit': return `${head} 提交表单 ${action.selector}`;
+    case 'wait': return `${head} 等待 ${action.value}ms`;
+    default: return `${head} ${action.action} ${action.selector || ''}`;
+  }
 }
 
 function severitySummary(bySeverity = {}) {

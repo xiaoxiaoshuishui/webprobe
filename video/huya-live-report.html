@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>虎牙直播 Web 端 — 软件测试报告 · run-20261016-143820-huya-live</title>
+<title>虎牙直播 Web 端 — 软件测试报告 · run-20261016-155046-huya-live</title>
 <style>
   :root {
     --bg: #0f1115; --panel: #171a21; --panel2: #1d2129; --line: #2a2f3a;
@@ -73,19 +73,19 @@
 <div class="wrap">
   <h1>虎牙直播 Web 端 — 软件测试报告</h1>
   <div class="sub">
-    WebProbe 浏览器端动态软件测试平台 v1.0.0 · 运行 <code>run-20261016-143820-huya-live</code> ·
-    2026-10-16T06:38:20.194Z → 2026-10-16T06:43:38.087Z · 耗时 5分18秒
+    WebProbe 浏览器端动态软件测试平台 v1.0.0 · 运行 <code>run-20261016-155046-huya-live</code> ·
+    2026-10-16T07:50:46.967Z → 2026-10-16T07:56:10.170Z · 耗时 5分23秒
   </div>
 
   <div class="grid">
-    <div class="card"><div class="k">发现缺陷</div><div class="v">26</div></div>
+    <div class="card"><div class="k">发现缺陷</div><div class="v">25</div></div>
     <div class="card"><div class="k">访问页面</div><div class="v">7</div></div>
-    <div class="card"><div class="k">执行动作</div><div class="v">91</div></div>
+    <div class="card"><div class="k">执行动作</div><div class="v">88</div></div>
     <div class="card"><div class="k">网络请求</div><div class="v">4000</div></div>
     <div class="card"><div class="k">失败请求</div><div class="v">104</div></div>
-    <div class="card"><div class="k">控制台消息</div><div class="v">152</div></div>
+    <div class="card"><div class="k">控制台消息</div><div class="v">157</div></div>
   </div>
-  <div class="pills"><span class="pill high">高 1</span><span class="pill medium">中 3</span><span class="pill low">低 22</span></div>
+  <div class="pills"><span class="pill medium">中 3</span><span class="pill low">低 22</span></div>
 
   <h2>被测目标</h2>
   <table>
@@ -94,7 +94,7 @@
     <tr><th>类型</th><td>remote</td></tr>
     <tr><th>浏览器</th><td>chrome 155.0.8059.40 · 启动方式 direct · 视口 1440×900</td></tr>
     <tr><th>随机种子</th><td><code>20261016</code> — 使用相同种子可复现本次执行序列</td></tr>
-    <tr><th>运行录像</th><td><a href="artifacts/video/run-20261016-143820-huya-live.mp4" target="_blank">artifacts/video/run-20261016-143820-huya-live.mp4</a></td></tr>
+    <tr><th>运行录像</th><td><a href="artifacts/video/run-20261016-155046-huya-live.mp4" target="_blank">artifacts/video/run-20261016-155046-huya-live.mp4</a></td></tr>
     
   </table>
 
@@ -104,64 +104,64 @@
     <tbody>
     <tr>
       <td><a href="#F-0001">F-0001</a></td>
-      <td><span class="badge high">高</span></td>
-      <td>未处理的 Promise 拒绝</td>
-      <td><a href="#F-0001">未处理的 Promise 拒绝：null</a></td>
-      <td>1</td>
+      <td><span class="badge medium">中</span></td>
+      <td>安全配置问题</td>
+      <td><a href="#F-0001">混合内容（HTTPS 页面加载 HTTP 资源）</a></td>
+      <td>3</td>
     </tr><tr>
       <td><a href="#F-0002">F-0002</a></td>
       <td><span class="badge medium">中</span></td>
-      <td>安全配置问题</td>
-      <td><a href="#F-0002">混合内容（HTTPS 页面加载 HTTP 资源）</a></td>
-      <td>3</td>
+      <td>资源加载失败</td>
+      <td><a href="#F-0002">元素 src 为空导致指向页面自身的无效请求</a></td>
+      <td>2</td>
     </tr><tr>
       <td><a href="#F-0003">F-0003</a></td>
       <td><span class="badge medium">中</span></td>
-      <td>资源加载失败</td>
-      <td><a href="#F-0003">元素 src 为空导致指向页面自身的无效请求</a></td>
-      <td>2</td>
+      <td>DOM 异常</td>
+      <td><a href="#F-0003">关键容器内容为空：ul#wrap-recomGame</a></td>
+      <td>1</td>
     </tr><tr>
       <td><a href="#F-0004">F-0004</a></td>
-      <td><span class="badge medium">中</span></td>
-      <td>DOM 异常</td>
-      <td><a href="#F-0004">关键容器内容为空：ul#wrap-recomGame</a></td>
-      <td>1</td>
+      <td><span class="badge low">低</span></td>
+      <td>资源加载失败</td>
+      <td><a href="#F-0004">资源加载失败：ql.njmapp.com:5284/</a></td>
+      <td>30</td>
     </tr><tr>
       <td><a href="#F-0005">F-0005</a></td>
       <td><span class="badge low">低</span></td>
       <td>资源加载失败</td>
-      <td><a href="#F-0005">资源加载失败：ql.njmapp.com:5284/</a></td>
-      <td>30</td>
+      <td><a href="#F-0005">资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business</a></td>
+      <td>18</td>
     </tr><tr>
       <td><a href="#F-0006">F-0006</a></td>
       <td><span class="badge low">低</span></td>
-      <td>资源加载失败</td>
-      <td><a href="#F-0006">资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business</a></td>
-      <td>18</td>
+      <td>控制台 error 输出</td>
+      <td><a href="#F-0006">console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; ha…</a></td>
+      <td>8</td>
     </tr><tr>
       <td><a href="#F-0007">F-0007</a></td>
       <td><span class="badge low">低</span></td>
       <td>性能劣化</td>
-      <td><a href="#F-0007">主线程长任务 350ms</a></td>
-      <td>8</td>
+      <td><a href="#F-0007">主线程长任务 281ms</a></td>
+      <td>6</td>
     </tr><tr>
       <td><a href="#F-0008">F-0008</a></td>
       <td><span class="badge low">低</span></td>
-      <td>控制台 error 输出</td>
-      <td><a href="#F-0008">console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; ha…</a></td>
-      <td>8</td>
+      <td>资源加载失败</td>
+      <td><a href="#F-0008">资源加载失败：ql.njmapp.com:5283/</a></td>
+      <td>5</td>
     </tr><tr>
       <td><a href="#F-0009">F-0009</a></td>
       <td><span class="badge low">低</span></td>
-      <td>资源加载失败</td>
-      <td><a href="#F-0009">资源加载失败：ql.njmapp.com:5283/</a></td>
+      <td>DOM 异常</td>
+      <td><a href="#F-0009">重复的元素 id：#live-0</a></td>
       <td>5</td>
     </tr><tr>
       <td><a href="#F-0010">F-0010</a></td>
       <td><span class="badge low">低</span></td>
-      <td>DOM 异常</td>
-      <td><a href="#F-0010">重复的元素 id：#live-0</a></td>
-      <td>5</td>
+      <td>资源加载失败</td>
+      <td><a href="#F-0010">资源加载失败：hm.baidu.com/hm.js</a></td>
+      <td>2</td>
     </tr><tr>
       <td><a href="#F-0011">F-0011</a></td>
       <td><span class="badge low">低</span></td>
@@ -171,8 +171,8 @@
     </tr><tr>
       <td><a href="#F-0012">F-0012</a></td>
       <td><span class="badge low">低</span></td>
-      <td>资源加载失败</td>
-      <td><a href="#F-0012">资源加载失败：hm.baidu.com/hm.js</a></td>
+      <td>控制台 warn 输出</td>
+      <td><a href="#F-0012">console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture …</a></td>
       <td>2</td>
     </tr><tr>
       <td><a href="#F-0013">F-0013</a></td>
@@ -183,14 +183,14 @@
     </tr><tr>
       <td><a href="#F-0014">F-0014</a></td>
       <td><span class="badge low">低</span></td>
-      <td>控制台 error 输出</td>
-      <td><a href="#F-0014">console.error：Error: timeout</a></td>
+      <td>资源加载失败</td>
+      <td><a href="#F-0014">资源加载失败：hm.baidu.com/hm.js</a></td>
       <td>1</td>
     </tr><tr>
       <td><a href="#F-0015">F-0015</a></td>
       <td><span class="badge low">低</span></td>
-      <td>资源加载失败</td>
-      <td><a href="#F-0015">资源加载失败：hm.baidu.com/hm.js</a></td>
+      <td>控制台 error 输出</td>
+      <td><a href="#F-0015">console.error：Error: timeout</a></td>
       <td>1</td>
     </tr><tr>
       <td><a href="#F-0016">F-0016</a></td>
@@ -231,8 +231,8 @@
     </tr><tr>
       <td><a href="#F-0022">F-0022</a></td>
       <td><span class="badge low">低</span></td>
-      <td>控制台 warn 输出</td>
-      <td><a href="#F-0022">console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture …</a></td>
+      <td>DOM 异常</td>
+      <td><a href="#F-0022">可交互元素缺少可访问名称（1 个元素）</a></td>
       <td>1</td>
     </tr><tr>
       <td><a href="#F-0023">F-0023</a></td>
@@ -252,59 +252,15 @@
       <td>DOM 异常</td>
       <td><a href="#F-0025">可交互元素缺少可访问名称（1 个元素）</a></td>
       <td>1</td>
-    </tr><tr>
-      <td><a href="#F-0026">F-0026</a></td>
-      <td><span class="badge low">低</span></td>
-      <td>DOM 异常</td>
-      <td><a href="#F-0026">可交互元素缺少可访问名称（1 个元素）</a></td>
-      <td>1</td>
     </tr>
     </tbody></table>
 
   <h2>缺陷详情</h2>
   
-    <article class="finding high" id="F-0001">
-      <header>
-        <span class="badge high">高</span>
-        <span class="id">F-0001</span>
-        <h3>未处理的 Promise 拒绝：null</h3>
-        <span class="count">×1</span>
-      </header>
-      <div class="meta">
-        <span class="kind">未处理的 Promise 拒绝 <code>unhandled-rejection</code></span>
-        
-        
-        <a class="url" href="https://www.huya.com/l" target="_blank">https://www.huya.com/l</a>
-      </div>
-      <pre class="msg">null</pre>
-      
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/l</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：null</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/7ca4e62ef143/screenshot.png" target="_blank"><img src="artifacts/findings/7ca4e62ef143/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/7ca4e62ef143/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/7ca4e62ef143/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/7ca4e62ef143/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/7ca4e62ef143/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/7ca4e62ef143/context.json" target="_blank">页面上下文</a> · <a href="artifacts/video/run-20261016-143820-huya-live.mp4" target="_blank">运行录像</a></div>
-      <details><summary>上下文</summary><pre class="ctx">{
-  &quot;href&quot;: &quot;https://www.huya.com/g&quot;,
-  &quot;title&quot;: &quot;虎牙直播-年轻人喜爱的弹幕式互动直播平台&quot;,
-  &quot;readyState&quot;: &quot;interactive&quot;,
-  &quot;viewport&quot;: &quot;1440x900&quot;,
-  &quot;scroll&quot;: &quot;0,0&quot;,
-  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
-  &quot;lang&quot;: &quot;zh-CN&quot;,
-  &quot;online&quot;: true,
-  &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 165,
-    &quot;load&quot;: 0
-  },
-  &quot;source&quot;: &quot;inpage&quot;,
-  &quot;errorName&quot;: &quot;Error&quot;,
-  &quot;party&quot;: &quot;first-party&quot;
-}</pre></details>
-      <footer>签名 <code>7ca4e62ef143</code> · 首次发现 2026-10-16T06:38:50.586Z</footer>
-    </article>
-
-    <article class="finding medium" id="F-0002">
+    <article class="finding medium" id="F-0001">
       <header>
         <span class="badge medium">中</span>
-        <span class="id">F-0002</span>
+        <span class="id">F-0001</span>
         <h3>混合内容（HTTPS 页面加载 HTTP 资源）</h3>
         <span class="count">×3</span>
       </header>
@@ -314,9 +270,9 @@
         
         <a class="url" href="https://www.huya.com/g/100032" target="_blank">https://www.huya.com/g/100032</a>
       </div>
-      <pre class="msg">混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/967499203-967499203-4155377435791065088-1935121862-10057-A-0-1-imgplus/20261016…。浏览器会拦截或降级这些请求，可能造成图片/样式/脚本在部分网络环境下静默失效。</pre>
+      <pre class="msg">混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/1334368570-1334368570-5731069368960286720-2668860596-10057-A-0-1-imgplus/202610…。浏览器会拦截或降级这些请求，可能造成图片/样式/脚本在部分网络环境下静默失效。</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/967499203-967499203-4155377435791065088-19…</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/1334368570-1334368570-5731069368960286720-…</li></ol></details>
       <div class="shots"><a href="artifacts/findings/cc79d8ac5d52/screenshot.png" target="_blank"><img src="artifacts/findings/cc79d8ac5d52/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/cc79d8ac5d52/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/cc79d8ac5d52/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/cc79d8ac5d52/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/cc79d8ac5d52/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/cc79d8ac5d52/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -329,8 +285,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;location&quot;: {
@@ -345,13 +301,13 @@
   &quot;insecureHost&quot;: &quot;live-cover.msstatic.com&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>cc79d8ac5d52</code> · 首次发现 2026-10-16T06:38:37.454Z</footer>
+      <footer>签名 <code>cc79d8ac5d52</code> · 首次发现 2026-10-16T07:51:09.270Z</footer>
     </article>
 
-    <article class="finding medium" id="F-0003">
+    <article class="finding medium" id="F-0002">
       <header>
         <span class="badge medium">中</span>
-        <span class="id">F-0003</span>
+        <span class="id">F-0002</span>
         <h3>元素 src 为空导致指向页面自身的无效请求</h3>
         <span class="count">×2</span>
       </header>
@@ -363,7 +319,7 @@
       </div>
       <pre class="msg">&lt;img&gt; 元素加载失败：该元素的 src 为空，浏览器将当前页面地址当作资源地址，发起了一次指向页面自身的无效请求。</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：&lt;img&gt; 元素加载失败：该元素的 src 为空，浏览器将当前页面地址当作资源地址，发起了一次指向页面自身的无效请求。</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：&lt;img&gt; 元素加载失败：该元素的 src 为空，浏览器将当前页面地址当作资源地址，发起了一次指向页面自身的无效请求。</li></ol></details>
       <div class="shots"><a href="artifacts/findings/6d84393d1a9b/screenshot.png" target="_blank"><img src="artifacts/findings/6d84393d1a9b/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/6d84393d1a9b/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/6d84393d1a9b/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/6d84393d1a9b/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/6d84393d1a9b/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/6d84393d1a9b/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -376,21 +332,21 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;inpage&quot;,
   &quot;resourceUrl&quot;: &quot;https://www.huya.com/&quot;,
   &quot;subtype&quot;: &quot;empty-src&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>6d84393d1a9b</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>6d84393d1a9b</code> · 首次发现 2026-10-16T07:51:00.364Z</footer>
     </article>
 
-    <article class="finding medium" id="F-0004">
+    <article class="finding medium" id="F-0003">
       <header>
         <span class="badge medium">中</span>
-        <span class="id">F-0004</span>
+        <span class="id">F-0003</span>
         <h3>关键容器内容为空：ul#wrap-recomGame</h3>
         <span class="count">×1</span>
       </header>
@@ -402,7 +358,7 @@
       </div>
       <pre class="msg">容器 ul#wrap-recomGame（尺寸 685×320）已渲染但既无文本也无媒体元素，疑似列表/播放器渲染失败。</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：容器 ul#wrap-recomGame（尺寸 685×320）已渲染但既无文本也无媒体元素，疑似列表/播放器渲染失败。</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：容器 ul#wrap-recomGame（尺寸 685×320）已渲染但既无文本也无媒体元素，疑似列表/播放器渲染失败。</li></ol></details>
       <div class="shots"><a href="artifacts/findings/4caffc007b19/screenshot.png" target="_blank"><img src="artifacts/findings/4caffc007b19/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/4caffc007b19/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/4caffc007b19/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/4caffc007b19/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/4caffc007b19/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/4caffc007b19/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -415,8 +371,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;empty-container&quot;,
@@ -425,13 +381,13 @@
   &quot;snippet&quot;: &quot;&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>4caffc007b19</code> · 首次发现 2026-10-16T06:38:28.537Z</footer>
+      <footer>签名 <code>4caffc007b19</code> · 首次发现 2026-10-16T07:51:00.397Z</footer>
     </article>
 
-    <article class="finding low" id="F-0005">
+    <article class="finding low" id="F-0004">
       <header>
         <span class="badge low">低</span>
-        <span class="id">F-0005</span>
+        <span class="id">F-0004</span>
         <h3>资源加载失败：ql.njmapp.com:5284/</h3>
         <span class="count">×30</span>
       </header>
@@ -443,7 +399,7 @@
       </div>
       <pre class="msg">net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/</li></ol></details>
       <div class="shots"><a href="artifacts/findings/7387392f17a3/screenshot.png" target="_blank"><img src="artifacts/findings/7387392f17a3/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/7387392f17a3/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/7387392f17a3/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/7387392f17a3/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/7387392f17a3/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/7387392f17a3/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -456,8 +412,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;requestfailed&quot;,
   &quot;resourceType&quot;: &quot;xhr&quot;,
@@ -465,13 +421,13 @@
   &quot;errorText&quot;: &quot;net::ERR_CONNECTION_REFUSED&quot;,
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>7387392f17a3</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>7387392f17a3</code> · 首次发现 2026-10-16T07:51:00.364Z</footer>
     </article>
 
-    <article class="finding low" id="F-0006">
+    <article class="finding low" id="F-0005">
       <header>
         <span class="badge low">低</span>
-        <span class="id">F-0006</span>
+        <span class="id">F-0005</span>
         <h3>资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business</h3>
         <span class="count">×18</span>
       </header>
@@ -483,7 +439,7 @@
       </div>
       <pre class="msg">net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_game_base/api/business</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_game_base/api/business</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_game_base/api/business</li></ol></details>
       <div class="shots"><a href="artifacts/findings/117a3af621cd/screenshot.png" target="_blank"><img src="artifacts/findings/117a3af621cd/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/117a3af621cd/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/117a3af621cd/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/117a3af621cd/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/117a3af621cd/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/117a3af621cd/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -496,8 +452,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;requestfailed&quot;,
   &quot;resourceType&quot;: &quot;xhr&quot;,
@@ -505,51 +461,13 @@
   &quot;errorText&quot;: &quot;net::ERR_CONNECTION_REFUSED&quot;,
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>117a3af621cd</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>117a3af621cd</code> · 首次发现 2026-10-16T07:51:00.365Z</footer>
     </article>
 
-    <article class="finding low" id="F-0007">
+    <article class="finding low" id="F-0006">
       <header>
         <span class="badge low">低</span>
-        <span class="id">F-0007</span>
-        <h3>主线程长任务 350ms</h3>
-        <span class="count">×8</span>
-      </header>
-      <div class="meta">
-        <span class="kind">性能劣化 <code>performance</code></span>
-        
-        
-        <a class="url" href="https://www.huya.com/" target="_blank">https://www.huya.com/</a>
-      </div>
-      <pre class="msg">检测到一次耗时 350ms 的长任务，会造成可感知的卡顿（阈值 250ms）。</pre>
-      
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：检测到一次耗时 350ms 的长任务，会造成可感知的卡顿（阈值 250ms）。</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/44f9a05a7a09/screenshot.png" target="_blank"><img src="artifacts/findings/44f9a05a7a09/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/44f9a05a7a09/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/44f9a05a7a09/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/44f9a05a7a09/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/44f9a05a7a09/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/44f9a05a7a09/context.json" target="_blank">页面上下文</a></div>
-      <details><summary>上下文</summary><pre class="ctx">{
-  &quot;href&quot;: &quot;https://www.huya.com/g/100032&quot;,
-  &quot;title&quot;: &quot;主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播&quot;,
-  &quot;readyState&quot;: &quot;complete&quot;,
-  &quot;viewport&quot;: &quot;1440x900&quot;,
-  &quot;scroll&quot;: &quot;0,0&quot;,
-  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
-  &quot;lang&quot;: &quot;zh-CN&quot;,
-  &quot;online&quot;: true,
-  &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
-  },
-  &quot;source&quot;: &quot;longtask-observer&quot;,
-  &quot;durationMs&quot;: 350,
-  &quot;party&quot;: &quot;first-party&quot;
-}</pre></details>
-      <footer>签名 <code>44f9a05a7a09</code> · 首次发现 2026-10-16T06:38:28.524Z</footer>
-    </article>
-
-    <article class="finding low" id="F-0008">
-      <header>
-        <span class="badge low">低</span>
-        <span class="id">F-0008</span>
+        <span class="id">F-0006</span>
         <h3>console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked…</h3>
         <span class="count">×8</span>
       </header>
@@ -561,7 +479,7 @@
       </div>
       <pre class="msg">Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked by CORS policy: Permission was denied for this re…</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked by CORS policy: Permission was denied for this re…</li></ol></details>
       <div class="shots"><a href="artifacts/findings/0cdabaf4a75d/screenshot.png" target="_blank"><img src="artifacts/findings/0cdabaf4a75d/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/0cdabaf4a75d/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/0cdabaf4a75d/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/0cdabaf4a75d/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/0cdabaf4a75d/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/0cdabaf4a75d/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -574,8 +492,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;resourceUrl&quot;: &quot;https://ql.njmapp.com:5283/&quot;,
@@ -588,13 +506,51 @@
   },
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>0cdabaf4a75d</code> · 首次发现 2026-10-16T06:38:37.455Z</footer>
+      <footer>签名 <code>0cdabaf4a75d</code> · 首次发现 2026-10-16T07:51:09.271Z</footer>
     </article>
 
-    <article class="finding low" id="F-0009">
+    <article class="finding low" id="F-0007">
       <header>
         <span class="badge low">低</span>
-        <span class="id">F-0009</span>
+        <span class="id">F-0007</span>
+        <h3>主线程长任务 281ms</h3>
+        <span class="count">×6</span>
+      </header>
+      <div class="meta">
+        <span class="kind">性能劣化 <code>performance</code></span>
+        
+        
+        <a class="url" href="https://www.huya.com/" target="_blank">https://www.huya.com/</a>
+      </div>
+      <pre class="msg">检测到一次耗时 281ms 的长任务，会造成可感知的卡顿（阈值 250ms）。</pre>
+      
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：检测到一次耗时 281ms 的长任务，会造成可感知的卡顿（阈值 250ms）。</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/44f9a05a7a09/screenshot.png" target="_blank"><img src="artifacts/findings/44f9a05a7a09/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/44f9a05a7a09/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/44f9a05a7a09/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/44f9a05a7a09/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/44f9a05a7a09/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/44f9a05a7a09/context.json" target="_blank">页面上下文</a></div>
+      <details><summary>上下文</summary><pre class="ctx">{
+  &quot;href&quot;: &quot;https://www.huya.com/g/100032&quot;,
+  &quot;title&quot;: &quot;主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播&quot;,
+  &quot;readyState&quot;: &quot;complete&quot;,
+  &quot;viewport&quot;: &quot;1440x900&quot;,
+  &quot;scroll&quot;: &quot;0,0&quot;,
+  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
+  &quot;lang&quot;: &quot;zh-CN&quot;,
+  &quot;online&quot;: true,
+  &quot;perf&quot;: {
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
+  },
+  &quot;source&quot;: &quot;longtask-observer&quot;,
+  &quot;durationMs&quot;: 281,
+  &quot;party&quot;: &quot;first-party&quot;
+}</pre></details>
+      <footer>签名 <code>44f9a05a7a09</code> · 首次发现 2026-10-16T07:51:00.363Z</footer>
+    </article>
+
+    <article class="finding low" id="F-0008">
+      <header>
+        <span class="badge low">低</span>
+        <span class="id">F-0008</span>
         <h3>资源加载失败：ql.njmapp.com:5283/</h3>
         <span class="count">×5</span>
       </header>
@@ -606,7 +562,7 @@
       </div>
       <pre class="msg">net::ERR_FAILED — xhr https://ql.njmapp.com:5283/</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：net::ERR_FAILED — xhr https://ql.njmapp.com:5283/</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：net::ERR_FAILED — xhr https://ql.njmapp.com:5283/</li></ol></details>
       <div class="shots"><a href="artifacts/findings/b37afc065f83/screenshot.png" target="_blank"><img src="artifacts/findings/b37afc065f83/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/b37afc065f83/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/b37afc065f83/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/b37afc065f83/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/b37afc065f83/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/b37afc065f83/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -619,8 +575,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;requestfailed&quot;,
   &quot;resourceType&quot;: &quot;xhr&quot;,
@@ -628,13 +584,13 @@
   &quot;errorText&quot;: &quot;net::ERR_FAILED&quot;,
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>b37afc065f83</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>b37afc065f83</code> · 首次发现 2026-10-16T07:51:00.364Z</footer>
     </article>
 
-    <article class="finding low" id="F-0010">
+    <article class="finding low" id="F-0009">
       <header>
         <span class="badge low">低</span>
-        <span class="id">F-0010</span>
+        <span class="id">F-0009</span>
         <h3>重复的元素 id：#live-0</h3>
         <span class="count">×5</span>
       </header>
@@ -646,7 +602,7 @@
       </div>
       <pre class="msg">id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器行为不确定。</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器行为不确定。</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器行为不确定。</li></ol></details>
       <div class="shots"><a href="artifacts/findings/d4c5d6abe531/screenshot.png" target="_blank"><img src="artifacts/findings/d4c5d6abe531/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/d4c5d6abe531/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/d4c5d6abe531/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/d4c5d6abe531/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/d4c5d6abe531/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/d4c5d6abe531/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -659,8 +615,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;duplicate-id&quot;,
@@ -669,7 +625,47 @@
   &quot;snippet&quot;: &quot;&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>d4c5d6abe531</code> · 首次发现 2026-10-16T06:38:28.537Z</footer>
+      <footer>签名 <code>d4c5d6abe531</code> · 首次发现 2026-10-16T07:51:00.397Z</footer>
+    </article>
+
+    <article class="finding low" id="F-0010">
+      <header>
+        <span class="badge low">低</span>
+        <span class="id">F-0010</span>
+        <h3>资源加载失败：hm.baidu.com/hm.js</h3>
+        <span class="count">×2</span>
+      </header>
+      <div class="meta">
+        <span class="kind">资源加载失败 <code>resource-error</code></span>
+        
+        <span class="known third">第三方组件</span>
+        <a class="url" href="https://www.huya.com/" target="_blank">https://www.huya.com/</a>
+      </div>
+      <pre class="msg">net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</pre>
+      
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/7b093463f79c/screenshot.png" target="_blank"><img src="artifacts/findings/7b093463f79c/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/7b093463f79c/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/7b093463f79c/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/7b093463f79c/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/7b093463f79c/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/7b093463f79c/context.json" target="_blank">页面上下文</a></div>
+      <details><summary>上下文</summary><pre class="ctx">{
+  &quot;href&quot;: &quot;https://www.huya.com/g/100032&quot;,
+  &quot;title&quot;: &quot;主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播&quot;,
+  &quot;readyState&quot;: &quot;complete&quot;,
+  &quot;viewport&quot;: &quot;1440x900&quot;,
+  &quot;scroll&quot;: &quot;0,0&quot;,
+  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
+  &quot;lang&quot;: &quot;zh-CN&quot;,
+  &quot;online&quot;: true,
+  &quot;perf&quot;: {
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
+  },
+  &quot;source&quot;: &quot;requestfailed&quot;,
+  &quot;resourceType&quot;: &quot;script&quot;,
+  &quot;resourceUrl&quot;: &quot;https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f&quot;,
+  &quot;errorText&quot;: &quot;net::ERR_NAME_NOT_RESOLVED&quot;,
+  &quot;party&quot;: &quot;third-party&quot;
+}</pre></details>
+      <footer>签名 <code>7b093463f79c</code> · 首次发现 2026-10-16T07:51:00.364Z</footer>
     </article>
 
     <article class="finding low" id="F-0011">
@@ -687,7 +683,7 @@
       </div>
       <pre class="msg">Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked by CORS policy: Permission was denied for this re…</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked by CORS policy: Permission was denied for this re…</li></ol></details>
       <div class="shots"><a href="artifacts/findings/3b0962266ad7/screenshot.png" target="_blank"><img src="artifacts/findings/3b0962266ad7/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/3b0962266ad7/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/3b0962266ad7/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/3b0962266ad7/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/3b0962266ad7/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/3b0962266ad7/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -700,8 +696,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;resourceUrl&quot;: &quot;https://ql.njmapp.com:5283/&quot;,
@@ -714,30 +710,30 @@
   },
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>3b0962266ad7</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>3b0962266ad7</code> · 首次发现 2026-10-16T07:51:00.364Z</footer>
     </article>
 
     <article class="finding low" id="F-0012">
       <header>
         <span class="badge low">低</span>
         <span class="id">F-0012</span>
-        <h3>资源加载失败：hm.baidu.com/hm.js</h3>
+        <h3>console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. …</h3>
         <span class="count">×2</span>
       </header>
       <div class="meta">
-        <span class="kind">资源加载失败 <code>resource-error</code></span>
+        <span class="kind">控制台 warn 输出 <code>console-warning</code></span>
         
-        <span class="known third">第三方组件</span>
-        <a class="url" href="https://www.huya.com/" target="_blank">https://www.huya.com/</a>
+        
+        <a class="url" href="https://www.huya.com/m" target="_blank">https://www.huya.com/m</a>
       </div>
-      <pre class="msg">net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</pre>
+      <pre class="msg">The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/7b093463f79c/screenshot.png" target="_blank"><img src="artifacts/findings/7b093463f79c/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/7b093463f79c/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/7b093463f79c/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/7b093463f79c/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/7b093463f79c/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/7b093463f79c/context.json" target="_blank">页面上下文</a></div>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/m</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_au…</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/5c04bae3d5ef/screenshot.png" target="_blank"><img src="artifacts/findings/5c04bae3d5ef/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/5c04bae3d5ef/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/5c04bae3d5ef/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/5c04bae3d5ef/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/5c04bae3d5ef/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/5c04bae3d5ef/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
-  &quot;href&quot;: &quot;https://www.huya.com/g/100032&quot;,
-  &quot;title&quot;: &quot;主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播&quot;,
+  &quot;href&quot;: &quot;https://www.huya.com/m&quot;,
+  &quot;title&quot;: &quot;赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播&quot;,
   &quot;readyState&quot;: &quot;complete&quot;,
   &quot;viewport&quot;: &quot;1440x900&quot;,
   &quot;scroll&quot;: &quot;0,0&quot;,
@@ -745,16 +741,20 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 369,
+    &quot;load&quot;: 661
   },
-  &quot;source&quot;: &quot;requestfailed&quot;,
-  &quot;resourceType&quot;: &quot;script&quot;,
-  &quot;resourceUrl&quot;: &quot;https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f&quot;,
-  &quot;errorText&quot;: &quot;net::ERR_NAME_NOT_RESOLVED&quot;,
-  &quot;party&quot;: &quot;third-party&quot;
+  &quot;source&quot;: &quot;console&quot;,
+  &quot;location&quot;: {
+    &quot;url&quot;: &quot;https://a.msstatic.com/huya/h5player/room/homePlayer/202609221711/vplayer.js&quot;,
+    &quot;line&quot;: 2,
+    &quot;column&quot;: 0,
+    &quot;lineNumber&quot;: 2,
+    &quot;columnNumber&quot;: 0
+  },
+  &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>7b093463f79c</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>5c04bae3d5ef</code> · 首次发现 2026-10-16T07:51:51.263Z</footer>
     </article>
 
     <article class="finding low" id="F-0013">
@@ -772,7 +772,7 @@
       </div>
       <pre class="msg">TTP 只能在直播间使用</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：TTP 只能在直播间使用</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：TTP 只能在直播间使用</li></ol></details>
       <div class="shots"><a href="artifacts/findings/a7ef8dd58511/screenshot.png" target="_blank"><img src="artifacts/findings/a7ef8dd58511/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/a7ef8dd58511/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/a7ef8dd58511/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/a7ef8dd58511/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/a7ef8dd58511/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/a7ef8dd58511/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -785,8 +785,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;location&quot;: {
@@ -798,13 +798,52 @@
   },
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>a7ef8dd58511</code> · 首次发现 2026-10-16T06:38:28.524Z</footer>
+      <footer>签名 <code>a7ef8dd58511</code> · 首次发现 2026-10-16T07:51:00.362Z</footer>
     </article>
 
     <article class="finding low" id="F-0014">
       <header>
         <span class="badge low">低</span>
         <span class="id">F-0014</span>
+        <h3>资源加载失败：hm.baidu.com/hm.js</h3>
+        <span class="count">×1</span>
+      </header>
+      <div class="meta">
+        <span class="kind">资源加载失败 <code>resource-error</code></span>
+        
+        <span class="known third">第三方组件</span>
+        <a class="url" href="https://www.huya.com/" target="_blank">https://www.huya.com/</a>
+      </div>
+      <pre class="msg">&lt;script&gt; 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</pre>
+      
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：&lt;script&gt; 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/4a7fa83900a2/screenshot.png" target="_blank"><img src="artifacts/findings/4a7fa83900a2/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/4a7fa83900a2/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/4a7fa83900a2/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/4a7fa83900a2/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/4a7fa83900a2/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/4a7fa83900a2/context.json" target="_blank">页面上下文</a></div>
+      <details><summary>上下文</summary><pre class="ctx">{
+  &quot;href&quot;: &quot;https://www.huya.com/g/100032&quot;,
+  &quot;title&quot;: &quot;主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播&quot;,
+  &quot;readyState&quot;: &quot;complete&quot;,
+  &quot;viewport&quot;: &quot;1440x900&quot;,
+  &quot;scroll&quot;: &quot;0,0&quot;,
+  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
+  &quot;lang&quot;: &quot;zh-CN&quot;,
+  &quot;online&quot;: true,
+  &quot;perf&quot;: {
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
+  },
+  &quot;source&quot;: &quot;inpage&quot;,
+  &quot;resourceUrl&quot;: &quot;https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f&quot;,
+  &quot;subtype&quot;: &quot;load-failure&quot;,
+  &quot;party&quot;: &quot;third-party&quot;
+}</pre></details>
+      <footer>签名 <code>4a7fa83900a2</code> · 首次发现 2026-10-16T07:51:00.364Z</footer>
+    </article>
+
+    <article class="finding low" id="F-0015">
+      <header>
+        <span class="badge low">低</span>
+        <span class="id">F-0015</span>
         <h3>console.error：Error: timeout</h3>
         <span class="count">×1</span>
       </header>
@@ -819,7 +858,7 @@
     at Generator.throw (&lt;anonymous&gt;)
     at a (https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:7941)</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：Error: timeout
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：Error: timeout
     at https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167
     at Generator.throw (&lt;anonymous&gt;)
     a…</li></ol></details>
@@ -835,8 +874,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;resourceUrl&quot;: &quot;https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167&quot;,
@@ -849,46 +888,7 @@
   },
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>be93003bf53b</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
-    </article>
-
-    <article class="finding low" id="F-0015">
-      <header>
-        <span class="badge low">低</span>
-        <span class="id">F-0015</span>
-        <h3>资源加载失败：hm.baidu.com/hm.js</h3>
-        <span class="count">×1</span>
-      </header>
-      <div class="meta">
-        <span class="kind">资源加载失败 <code>resource-error</code></span>
-        
-        <span class="known third">第三方组件</span>
-        <a class="url" href="https://www.huya.com/" target="_blank">https://www.huya.com/</a>
-      </div>
-      <pre class="msg">&lt;script&gt; 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</pre>
-      
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：&lt;script&gt; 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/4a7fa83900a2/screenshot.png" target="_blank"><img src="artifacts/findings/4a7fa83900a2/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/4a7fa83900a2/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/4a7fa83900a2/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/4a7fa83900a2/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/4a7fa83900a2/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/4a7fa83900a2/context.json" target="_blank">页面上下文</a></div>
-      <details><summary>上下文</summary><pre class="ctx">{
-  &quot;href&quot;: &quot;https://www.huya.com/g/100032&quot;,
-  &quot;title&quot;: &quot;主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播&quot;,
-  &quot;readyState&quot;: &quot;complete&quot;,
-  &quot;viewport&quot;: &quot;1440x900&quot;,
-  &quot;scroll&quot;: &quot;0,0&quot;,
-  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
-  &quot;lang&quot;: &quot;zh-CN&quot;,
-  &quot;online&quot;: true,
-  &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
-  },
-  &quot;source&quot;: &quot;inpage&quot;,
-  &quot;resourceUrl&quot;: &quot;https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f&quot;,
-  &quot;subtype&quot;: &quot;load-failure&quot;,
-  &quot;party&quot;: &quot;third-party&quot;
-}</pre></details>
-      <footer>签名 <code>4a7fa83900a2</code> · 首次发现 2026-10-16T06:38:28.525Z</footer>
+      <footer>签名 <code>be93003bf53b</code> · 首次发现 2026-10-16T07:51:00.365Z</footer>
     </article>
 
     <article class="finding low" id="F-0016">
@@ -906,7 +906,7 @@
       </div>
       <pre class="msg">页面上有 4 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.left-banner.clickstat | a.right-banner.clickstat | a.preview-pic-link.clickstat</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 4 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.left-banner.clickstat | a.right-banner.clickstat | a.preview-pic-link.cl…</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 4 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.left-banner.clickstat | a.right-banner.clickstat | a.preview-pic-link.cl…</li></ol></details>
       <div class="shots"><a href="artifacts/findings/36d8c73ed194/screenshot.png" target="_blank"><img src="artifacts/findings/36d8c73ed194/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/36d8c73ed194/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/36d8c73ed194/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/36d8c73ed194/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/36d8c73ed194/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/36d8c73ed194/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -919,8 +919,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;nameless-control&quot;,
@@ -929,7 +929,7 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat | a.left-banner.clickstat | a.right-banner.clickstat | a.preview-pic-link.clickstat&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>36d8c73ed194</code> · 首次发现 2026-10-16T06:38:28.537Z</footer>
+      <footer>签名 <code>36d8c73ed194</code> · 首次发现 2026-10-16T07:51:00.397Z</footer>
     </article>
 
     <article class="finding low" id="F-0017">
@@ -947,7 +947,7 @@
       </div>
       <pre class="msg">页面上有 6 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 6 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 6 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem</li></ol></details>
       <div class="shots"><a href="artifacts/findings/bfd87947f476/screenshot.png" target="_blank"><img src="artifacts/findings/bfd87947f476/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/bfd87947f476/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/bfd87947f476/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/bfd87947f476/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/bfd87947f476/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/bfd87947f476/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -960,8 +960,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;nameless-control&quot;,
@@ -970,7 +970,7 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat | a | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>bfd87947f476</code> · 首次发现 2026-10-16T06:38:37.412Z</footer>
+      <footer>签名 <code>bfd87947f476</code> · 首次发现 2026-10-16T07:51:09.238Z</footer>
     </article>
 
     <article class="finding low" id="F-0018">
@@ -988,7 +988,7 @@
       </div>
       <pre class="msg">TTP 只能在直播间使用</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：TTP 只能在直播间使用</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：TTP 只能在直播间使用</li></ol></details>
       <div class="shots"><a href="artifacts/findings/18551b02ec90/screenshot.png" target="_blank"><img src="artifacts/findings/18551b02ec90/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/18551b02ec90/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/18551b02ec90/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/18551b02ec90/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/18551b02ec90/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/18551b02ec90/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -1001,8 +1001,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;location&quot;: {
@@ -1014,7 +1014,7 @@
   },
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>18551b02ec90</code> · 首次发现 2026-10-16T06:38:37.455Z</footer>
+      <footer>签名 <code>18551b02ec90</code> · 首次发现 2026-10-16T07:51:09.271Z</footer>
     </article>
 
     <article class="finding low" id="F-0019">
@@ -1035,7 +1035,7 @@
     at Generator.throw (&lt;anonymous&gt;)
     at a (https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:7941)</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：Error: timeout
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g/100032</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：Error: timeout
     at https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167
     at Generator.throw (&lt;anonymous&gt;)
     a…</li></ol></details>
@@ -1051,8 +1051,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 1003,
-    &quot;load&quot;: 3134
+    &quot;domContentLoaded&quot;: 872,
+    &quot;load&quot;: 2474
   },
   &quot;source&quot;: &quot;console&quot;,
   &quot;resourceUrl&quot;: &quot;https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167&quot;,
@@ -1065,7 +1065,7 @@
   },
   &quot;party&quot;: &quot;third-party&quot;
 }</pre></details>
-      <footer>签名 <code>7dead1205030</code> · 首次发现 2026-10-16T06:38:37.455Z</footer>
+      <footer>签名 <code>7dead1205030</code> · 首次发现 2026-10-16T07:51:09.272Z</footer>
     </article>
 
     <article class="finding low" id="F-0020">
@@ -1083,7 +1083,7 @@
       </div>
       <pre class="msg">页面上有 8 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.preview-pic-link.clickstat | a.item-link | a.item-link | a.item-link | a.item-link | a.item-link | a.item-link</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/l</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 8 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.preview-pic-link.clickstat | a.item-link | a.item-link | a.item-link | a…</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/l</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 8 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.preview-pic-link.clickstat | a.item-link | a.item-link | a.item-link | a…</li></ol></details>
       <div class="shots"><a href="artifacts/findings/63c9aa0fab85/screenshot.png" target="_blank"><img src="artifacts/findings/63c9aa0fab85/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/63c9aa0fab85/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/63c9aa0fab85/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/63c9aa0fab85/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/63c9aa0fab85/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/63c9aa0fab85/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -1096,7 +1096,7 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 165,
+    &quot;domContentLoaded&quot;: 285,
     &quot;load&quot;: 0
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
@@ -1106,7 +1106,7 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat | a.preview-pic-link.clickstat | a.item-link | a.item-link | a.item-link | a.item-link | a.item-link | a.item-link&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>63c9aa0fab85</code> · 首次发现 2026-10-16T06:38:50.601Z</footer>
+      <footer>签名 <code>63c9aa0fab85</code> · 首次发现 2026-10-16T07:51:22.356Z</footer>
     </article>
 
     <article class="finding low" id="F-0021">
@@ -1124,21 +1124,21 @@
       </div>
       <pre class="msg">页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
       <div class="shots"><a href="artifacts/findings/f6e6e4b5525f/screenshot.png" target="_blank"><img src="artifacts/findings/f6e6e4b5525f/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/f6e6e4b5525f/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/f6e6e4b5525f/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/f6e6e4b5525f/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/f6e6e4b5525f/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/f6e6e4b5525f/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
   &quot;href&quot;: &quot;https://www.huya.com/m&quot;,
   &quot;title&quot;: &quot;赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播&quot;,
-  &quot;readyState&quot;: &quot;complete&quot;,
+  &quot;readyState&quot;: &quot;interactive&quot;,
   &quot;viewport&quot;: &quot;1440x900&quot;,
   &quot;scroll&quot;: &quot;0,0&quot;,
   &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 790,
-    &quot;load&quot;: 1038
+    &quot;domContentLoaded&quot;: 730,
+    &quot;load&quot;: 0
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;nameless-control&quot;,
@@ -1147,27 +1147,27 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>f6e6e4b5525f</code> · 首次发现 2026-10-16T06:39:01.462Z</footer>
+      <footer>签名 <code>f6e6e4b5525f</code> · 首次发现 2026-10-16T07:51:33.155Z</footer>
     </article>
 
     <article class="finding low" id="F-0022">
       <header>
         <span class="badge low">低</span>
         <span class="id">F-0022</span>
-        <h3>console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. …</h3>
+        <h3>可交互元素缺少可访问名称（1 个元素）</h3>
         <span class="count">×1</span>
       </header>
       <div class="meta">
-        <span class="kind">控制台 warn 输出 <code>console-warning</code></span>
+        <span class="kind">DOM 异常 <code>dom-anomaly</code></span>
         
         
         <a class="url" href="https://www.huya.com/m" target="_blank">https://www.huya.com/m</a>
       </div>
-      <pre class="msg">The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio</pre>
+      <pre class="msg">页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/m</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_au…</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/5c04bae3d5ef/screenshot.png" target="_blank"><img src="artifacts/findings/5c04bae3d5ef/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/5c04bae3d5ef/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/5c04bae3d5ef/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/5c04bae3d5ef/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/5c04bae3d5ef/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/5c04bae3d5ef/context.json" target="_blank">页面上下文</a></div>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/m</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/c4852d82da05/screenshot.png" target="_blank"><img src="artifacts/findings/c4852d82da05/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/c4852d82da05/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/c4852d82da05/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/c4852d82da05/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/c4852d82da05/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/c4852d82da05/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
   &quot;href&quot;: &quot;https://www.huya.com/m&quot;,
   &quot;title&quot;: &quot;赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播&quot;,
@@ -1178,20 +1178,17 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 266,
-    &quot;load&quot;: 912
+    &quot;domContentLoaded&quot;: 369,
+    &quot;load&quot;: 661
   },
-  &quot;source&quot;: &quot;console&quot;,
-  &quot;location&quot;: {
-    &quot;url&quot;: &quot;https://a.msstatic.com/huya/h5player/room/homePlayer/202609221711/vplayer.js&quot;,
-    &quot;line&quot;: 2,
-    &quot;column&quot;: 0,
-    &quot;lineNumber&quot;: 2,
-    &quot;columnNumber&quot;: 0
-  },
+  &quot;source&quot;: &quot;dom-audit&quot;,
+  &quot;subtype&quot;: &quot;nameless-control&quot;,
+  &quot;selector&quot;: &quot;button.btn-search.clickstat&quot;,
+  &quot;detail&quot;: &quot;1 个元素&quot;,
+  &quot;snippet&quot;: &quot;button.btn-search.clickstat&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>5c04bae3d5ef</code> · 首次发现 2026-10-16T06:39:19.965Z</footer>
+      <footer>签名 <code>c4852d82da05</code> · 首次发现 2026-10-16T07:51:51.274Z</footer>
     </article>
 
     <article class="finding low" id="F-0023">
@@ -1205,13 +1202,13 @@
         <span class="kind">DOM 异常 <code>dom-anomaly</code></span>
         
         
-        <a class="url" href="https://www.huya.com/m" target="_blank">https://www.huya.com/m</a>
+        <a class="url" href="https://www.huya.com/g_ol" target="_blank">https://www.huya.com/g_ol</a>
       </div>
       <pre class="msg">页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/m</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/c4852d82da05/screenshot.png" target="_blank"><img src="artifacts/findings/c4852d82da05/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/c4852d82da05/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/c4852d82da05/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/c4852d82da05/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/c4852d82da05/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/c4852d82da05/context.json" target="_blank">页面上下文</a></div>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g_ol</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/723527950083/screenshot.png" target="_blank"><img src="artifacts/findings/723527950083/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/723527950083/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/723527950083/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/723527950083/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/723527950083/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/723527950083/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
   &quot;href&quot;: &quot;https://www.huya.com/m&quot;,
   &quot;title&quot;: &quot;赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播&quot;,
@@ -1222,8 +1219,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 266,
-    &quot;load&quot;: 912
+    &quot;domContentLoaded&quot;: 450,
+    &quot;load&quot;: 1918
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;nameless-control&quot;,
@@ -1232,7 +1229,7 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>c4852d82da05</code> · 首次发现 2026-10-16T06:39:19.973Z</footer>
+      <footer>签名 <code>723527950083</code> · 首次发现 2026-10-16T07:52:22.655Z</footer>
     </article>
 
     <article class="finding low" id="F-0024">
@@ -1246,13 +1243,13 @@
         <span class="kind">DOM 异常 <code>dom-anomaly</code></span>
         
         
-        <a class="url" href="https://www.huya.com/g_ol" target="_blank">https://www.huya.com/g_ol</a>
+        <a class="url" href="https://www.huya.com/g_pc" target="_blank">https://www.huya.com/g_pc</a>
       </div>
       <pre class="msg">页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g_ol</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/723527950083/screenshot.png" target="_blank"><img src="artifacts/findings/723527950083/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/723527950083/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/723527950083/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/723527950083/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/723527950083/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/723527950083/context.json" target="_blank">页面上下文</a></div>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g_pc</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
+      <div class="shots"><a href="artifacts/findings/77dda417c430/screenshot.png" target="_blank"><img src="artifacts/findings/77dda417c430/screenshot.png" alt="截图" loading="lazy"></a></div>
+      <div class="links"><a href="artifacts/findings/77dda417c430/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/77dda417c430/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/77dda417c430/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/77dda417c430/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/77dda417c430/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
   &quot;href&quot;: &quot;https://www.huya.com/m&quot;,
   &quot;title&quot;: &quot;赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播&quot;,
@@ -1263,8 +1260,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 507,
-    &quot;load&quot;: 1035
+    &quot;domContentLoaded&quot;: 416,
+    &quot;load&quot;: 890
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;nameless-control&quot;,
@@ -1273,7 +1270,7 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>723527950083</code> · 首次发现 2026-10-16T06:39:54.821Z</footer>
+      <footer>签名 <code>77dda417c430</code> · 首次发现 2026-10-16T07:53:40.816Z</footer>
     </article>
 
     <article class="finding low" id="F-0025">
@@ -1287,52 +1284,11 @@
         <span class="kind">DOM 异常 <code>dom-anomaly</code></span>
         
         
-        <a class="url" href="https://www.huya.com/g_pc" target="_blank">https://www.huya.com/g_pc</a>
-      </div>
-      <pre class="msg">页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</pre>
-      
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g_pc</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
-      <div class="shots"><a href="artifacts/findings/77dda417c430/screenshot.png" target="_blank"><img src="artifacts/findings/77dda417c430/screenshot.png" alt="截图" loading="lazy"></a></div>
-      <div class="links"><a href="artifacts/findings/77dda417c430/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/77dda417c430/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/77dda417c430/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/77dda417c430/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/77dda417c430/context.json" target="_blank">页面上下文</a></div>
-      <details><summary>上下文</summary><pre class="ctx">{
-  &quot;href&quot;: &quot;https://www.huya.com/m&quot;,
-  &quot;title&quot;: &quot;赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播&quot;,
-  &quot;readyState&quot;: &quot;complete&quot;,
-  &quot;viewport&quot;: &quot;1440x900&quot;,
-  &quot;scroll&quot;: &quot;0,0&quot;,
-  &quot;ua&quot;: &quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36&quot;,
-  &quot;lang&quot;: &quot;zh-CN&quot;,
-  &quot;online&quot;: true,
-  &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 446,
-    &quot;load&quot;: 687
-  },
-  &quot;source&quot;: &quot;dom-audit&quot;,
-  &quot;subtype&quot;: &quot;nameless-control&quot;,
-  &quot;selector&quot;: &quot;button.btn-search.clickstat&quot;,
-  &quot;detail&quot;: &quot;1 个元素&quot;,
-  &quot;snippet&quot;: &quot;button.btn-search.clickstat&quot;,
-  &quot;party&quot;: &quot;first-party&quot;
-}</pre></details>
-      <footer>签名 <code>77dda417c430</code> · 首次发现 2026-10-16T06:41:09.059Z</footer>
-    </article>
-
-    <article class="finding low" id="F-0026">
-      <header>
-        <span class="badge low">低</span>
-        <span class="id">F-0026</span>
-        <h3>可交互元素缺少可访问名称（1 个元素）</h3>
-        <span class="count">×1</span>
-      </header>
-      <div class="meta">
-        <span class="kind">DOM 异常 <code>dom-anomaly</code></span>
-        
-        
         <a class="url" href="https://www.huya.com/g_yl" target="_blank">https://www.huya.com/g_yl</a>
       </div>
       <pre class="msg">页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</pre>
       
-      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g_yl</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(11) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;99999999999999999999&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-match</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
+      <details open><summary>复现步骤</summary><ol class="steps"><li>打开 https://www.huya.com/g_yl</li><li>将 window 滚动到 top</li><li>悬停 #hy-nav-category</li><li>将 li.g-gameCard-item:nth-of-type(37) &gt; a.g-gameCard-link 滚动到 middle</li><li>将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom</li><li>将 li.g-gameCard-item:nth-of-type(10) &gt; a.g-gameCard-link 滚动到 middle</li><li>悬停 body</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 middle</li><li>将 window 滚动到 top</li><li>点击 #hy-nav-category（分类）</li><li>点击 #hy-nav-match（赛事）</li><li>点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）</li><li>点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）</li><li>点击 .game-live-item（.game-live-item）</li><li>点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）</li><li>点击 a.hy-nav-link.hy-nav-link-shop（卖号）</li><li>点击 button.btn-search.clickstat</li><li>在 #search-bar-input 输入 &quot;英雄联盟&quot;</li><li>提交表单 #search-bar-input</li><li>将 window 滚动到 bottom</li><li>将 window 滚动到 top</li><li>→ 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat</li></ol></details>
       <div class="shots"><a href="artifacts/findings/77fb05773d4b/screenshot.png" target="_blank"><img src="artifacts/findings/77fb05773d4b/screenshot.png" alt="截图" loading="lazy"></a></div>
       <div class="links"><a href="artifacts/findings/77fb05773d4b/dom.html" target="_blank">DOM 快照</a> · <a href="artifacts/findings/77fb05773d4b/console.log" target="_blank">控制台日志</a> · <a href="artifacts/findings/77fb05773d4b/network.json" target="_blank">网络记录</a> · <a href="artifacts/findings/77fb05773d4b/repro.spec.mjs" target="_blank">复现脚本</a> · <a href="artifacts/findings/77fb05773d4b/context.json" target="_blank">页面上下文</a></div>
       <details><summary>上下文</summary><pre class="ctx">{
@@ -1345,8 +1301,8 @@
   &quot;lang&quot;: &quot;zh-CN&quot;,
   &quot;online&quot;: true,
   &quot;perf&quot;: {
-    &quot;domContentLoaded&quot;: 381,
-    &quot;load&quot;: 691
+    &quot;domContentLoaded&quot;: 433,
+    &quot;load&quot;: 706
   },
   &quot;source&quot;: &quot;dom-audit&quot;,
   &quot;subtype&quot;: &quot;nameless-control&quot;,
@@ -1355,14 +1311,14 @@
   &quot;snippet&quot;: &quot;button.btn-search.clickstat&quot;,
   &quot;party&quot;: &quot;first-party&quot;
 }</pre></details>
-      <footer>签名 <code>77fb05773d4b</code> · 首次发现 2026-10-16T06:42:35.348Z</footer>
+      <footer>签名 <code>77fb05773d4b</code> · 首次发现 2026-10-16T07:55:10.139Z</footer>
     </article>
 
   <h2>覆盖范围</h2>
   <div class="grid">
     <div class="card"><div class="k">已访问页面</div><div class="v">7</div></div>
     <div class="card"><div class="k">已发现链接</div><div class="v">7</div></div>
-    <div class="card"><div class="k">跳过链接</div><div class="v">16</div></div>
+    <div class="card"><div class="k">跳过链接</div><div class="v">15</div></div>
   </div>
   
   <h3 style="font-size:15px;margin-top:22px">断言结果</h3>
@@ -1413,8 +1369,8 @@
   </table>
 
   <h2>执行时间线</h2>
-  <details class="cover" open><summary>展开/收起（最近 67 条）</summary>
-    <ul class="timeline"><li><time>06:38:20</time><span class="ttype">browser</span>浏览器已启动：C:/Program Files/Google/Chrome/Application/chrome.exe</li><li><time>06:38:20</time><span class="ttype">start</span>开始动态测试</li><li><time>06:38:20</time><span class="ttype">goto</span>打开 https://www.huya.com/</li><li><time>06:38:22</time><span class="ttype">loaded</span>已加载 https://www.huya.com/ (HTTP 200)</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] console.warn：TTP 只能在直播间使用</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 主线程长任务 350ms</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked…</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 资源加载失败：ql.njmapp.com:5283/</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [medium] 元素 src 为空导致指向页面自身的无效请求</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 资源加载失败：ql.njmapp.com:5284/</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] console.error：Error: timeout</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 资源加载失败：hm.baidu.com/hm.js</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 资源加载失败：hm.baidu.com/hm.js</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [medium] 关键容器内容为空：ul#wrap-recomGame</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 重复的元素 id：#live-0</li><li><time>06:38:28</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（4 个元素）</li><li><time>06:38:28</time><span class="ttype">flow</span>执行流程 顶部导航：展开「游戏分类」与赛事面板</li><li><time>06:38:32</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:38:36</time><span class="ttype">popup</span>新标签页：www.huya.com/g/100032</li><li><time>06:38:37</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（6 个元素）</li><li><time>06:38:37</time><span class="ttype">finding</span>发现 [medium] 混合内容（HTTPS 页面加载 HTTP 资源）</li><li><time>06:38:37</time><span class="ttype">finding</span>发现 [low] console.warn：TTP 只能在直播间使用</li><li><time>06:38:37</time><span class="ttype">finding</span>发现 [low] console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked…</li><li><time>06:38:37</time><span class="ttype">finding</span>发现 [low] console.error：Error: timeout</li><li><time>06:38:38</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:38:43</time><span class="ttype">fuzz</span>对 https://www.huya.com/g 执行 35 个动作</li><li><time>06:38:43</time><span class="ttype">goto</span>打开 https://www.huya.com/l</li><li><time>06:38:43</time><span class="ttype">loaded</span>已加载 https://www.huya.com/l (HTTP 200)</li><li><time>06:38:50</time><span class="ttype">finding</span>发现 [high] 未处理的 Promise 拒绝：null</li><li><time>06:38:50</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（8 个元素）</li><li><time>06:38:50</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:38:52</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:38:57</time><span class="ttype">fuzz</span>对 https://www.huya.com/l 执行 35 个动作</li><li><time>06:38:58</time><span class="ttype">goto</span>打开 https://www.huya.com/g</li><li><time>06:38:58</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g (HTTP 200)</li><li><time>06:39:01</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>06:39:01</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:39:07</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:39:11</time><span class="ttype">fuzz</span>对 https://www.huya.com/g 执行 35 个动作</li><li><time>06:39:13</time><span class="ttype">goto</span>打开 https://www.huya.com/m</li><li><time>06:39:13</time><span class="ttype">loaded</span>已加载 https://www.huya.com/m (HTTP 200)</li><li><time>06:39:19</time><span class="ttype">finding</span>发现 [low] console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. …</li><li><time>06:39:19</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>06:39:19</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:39:21</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:39:26</time><span class="ttype">fuzz</span>对 https://www.huya.com/m 执行 35 个动作</li><li><time>06:39:47</time><span class="ttype">goto</span>打开 https://www.huya.com/g_ol</li><li><time>06:39:48</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g_ol (HTTP 200)</li><li><time>06:39:54</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>06:39:54</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:40:00</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:40:04</time><span class="ttype">fuzz</span>对 https://www.huya.com/g_ol 执行 35 个动作</li><li><time>06:41:05</time><span class="ttype">goto</span>打开 https://www.huya.com/g_pc</li><li><time>06:41:06</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g_pc (HTTP 200)</li><li><time>06:41:09</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>06:41:09</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:41:15</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:41:19</time><span class="ttype">fuzz</span>对 https://www.huya.com/g_pc 执行 35 个动作</li><li><time>06:42:32</time><span class="ttype">goto</span>打开 https://www.huya.com/g_yl</li><li><time>06:42:32</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g_yl (HTTP 200)</li><li><time>06:42:35</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>06:42:35</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>06:42:40</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>06:42:45</time><span class="ttype">fuzz</span>对 https://www.huya.com/g_yl 执行 35 个动作</li><li><time>06:43:22</time><span class="ttype">budget</span>达到时间预算上限 5分0秒</li><li><time>06:43:37</time><span class="ttype">video</span>录像已生成 runs\run-20261016-143820-huya-live\artifacts\video\run-20261016-143820-huya-live.mp4</li></ul>
+  <details class="cover" open><summary>展开/收起（最近 68 条）</summary>
+    <ul class="timeline"><li><time>07:50:47</time><span class="ttype">browser</span>浏览器已启动：C:/Program Files/Google/Chrome/Application/chrome.exe</li><li><time>07:50:52</time><span class="ttype">intro</span>开场信息卡已展示</li><li><time>07:50:52</time><span class="ttype">start</span>开始动态测试</li><li><time>07:50:52</time><span class="ttype">goto</span>打开 https://www.huya.com/</li><li><time>07:50:54</time><span class="ttype">loaded</span>已加载 https://www.huya.com/ (HTTP 200)</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] console.warn：TTP 只能在直播间使用</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 主线程长任务 281ms</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [medium] 元素 src 为空导致指向页面自身的无效请求</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 资源加载失败：hm.baidu.com/hm.js</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked…</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 资源加载失败：ql.njmapp.com:5283/</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 资源加载失败：ql.njmapp.com:5284/</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 资源加载失败：hm.baidu.com/hm.js</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] console.error：Error: timeout</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [medium] 关键容器内容为空：ul#wrap-recomGame</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 重复的元素 id：#live-0</li><li><time>07:51:00</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（4 个元素）</li><li><time>07:51:00</time><span class="ttype">flow</span>执行流程 顶部导航：展开「游戏分类」与赛事面板</li><li><time>07:51:04</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:51:08</time><span class="ttype">popup</span>新标签页：www.huya.com/g/100032</li><li><time>07:51:09</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（6 个元素）</li><li><time>07:51:09</time><span class="ttype">finding</span>发现 [medium] 混合内容（HTTPS 页面加载 HTTP 资源）</li><li><time>07:51:09</time><span class="ttype">finding</span>发现 [low] console.warn：TTP 只能在直播间使用</li><li><time>07:51:09</time><span class="ttype">finding</span>发现 [low] console.error：Access to XMLHttpRequest at &#39;https://ql.njmapp.com:5283/&#39; from origin &#39;https://www.huya.com&#39; has been blocked…</li><li><time>07:51:09</time><span class="ttype">finding</span>发现 [low] console.error：Error: timeout</li><li><time>07:51:09</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:51:15</time><span class="ttype">fuzz</span>对 https://www.huya.com/g 执行 35 个动作</li><li><time>07:51:15</time><span class="ttype">goto</span>打开 https://www.huya.com/l</li><li><time>07:51:15</time><span class="ttype">loaded</span>已加载 https://www.huya.com/l (HTTP 200)</li><li><time>07:51:22</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（8 个元素）</li><li><time>07:51:22</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:51:24</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:51:29</time><span class="ttype">fuzz</span>对 https://www.huya.com/l 执行 35 个动作</li><li><time>07:51:29</time><span class="ttype">goto</span>打开 https://www.huya.com/g</li><li><time>07:51:30</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g (HTTP 200)</li><li><time>07:51:33</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>07:51:33</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:51:38</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:51:43</time><span class="ttype">fuzz</span>对 https://www.huya.com/g 执行 35 个动作</li><li><time>07:51:44</time><span class="ttype">goto</span>打开 https://www.huya.com/m</li><li><time>07:51:44</time><span class="ttype">loaded</span>已加载 https://www.huya.com/m (HTTP 200)</li><li><time>07:51:51</time><span class="ttype">finding</span>发现 [low] console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. …</li><li><time>07:51:51</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>07:51:51</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:51:53</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:51:57</time><span class="ttype">fuzz</span>对 https://www.huya.com/m 执行 35 个动作</li><li><time>07:52:19</time><span class="ttype">goto</span>打开 https://www.huya.com/g_ol</li><li><time>07:52:19</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g_ol (HTTP 200)</li><li><time>07:52:22</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>07:52:22</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:52:28</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:52:32</time><span class="ttype">fuzz</span>对 https://www.huya.com/g_ol 执行 35 个动作</li><li><time>07:53:37</time><span class="ttype">goto</span>打开 https://www.huya.com/g_pc</li><li><time>07:53:37</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g_pc (HTTP 200)</li><li><time>07:53:40</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>07:53:40</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:53:46</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:53:51</time><span class="ttype">fuzz</span>对 https://www.huya.com/g_pc 执行 35 个动作</li><li><time>07:55:08</time><span class="ttype">goto</span>打开 https://www.huya.com/g_yl</li><li><time>07:55:08</time><span class="ttype">loaded</span>已加载 https://www.huya.com/g_yl (HTTP 200)</li><li><time>07:55:10</time><span class="ttype">finding</span>发现 [low] 可交互元素缺少可访问名称（1 个元素）</li><li><time>07:55:10</time><span class="ttype">flow</span>执行流程 直播间卡片：悬停查看预览层</li><li><time>07:55:16</time><span class="ttype">flow</span>执行流程 深度滚动：触发懒加载与吸顶逻辑</li><li><time>07:55:20</time><span class="ttype">fuzz</span>对 https://www.huya.com/g_yl 执行 35 个动作</li><li><time>07:55:48</time><span class="ttype">budget</span>达到时间预算上限 5分0秒</li><li><time>07:55:48</time><span class="ttype">outro</span>展示测试结果卡（25 个缺陷）</li><li><time>07:56:09</time><span class="ttype">video</span>录像已生成 runs\run-20261016-155046-huya-live\artifacts\video\run-20261016-155046-huya-live.mp4</li></ul>
   </details>
 
   <h2>复现整轮测试</h2>

@@ -4,14 +4,14 @@
 
 | 项目 | 值 |
 | --- | --- |
-| 运行 ID | `run-20261016-143820-huya-live` |
+| 运行 ID | `run-20261016-155046-huya-live` |
 | 被测目标 | 虎牙直播 Web 端（remote） |
 | 入口地址 | https://www.huya.com/ |
 | 目标目录 | `D:\qq\File\FileRecv\ds_work\code\targets\huya-live` |
 | 浏览器 | chrome 155.0.8059.40 · direct |
-| 开始时间 | 2026-10-16T06:38:20.194Z |
-| 结束时间 | 2026-10-16T06:43:38.087Z |
-| 耗时 | 5分18秒 |
+| 开始时间 | 2026-10-16T07:50:46.967Z |
+| 结束时间 | 2026-10-16T07:56:10.170Z |
+| 耗时 | 5分23秒 |
 | 随机种子 | `20261016`（相同种子可复现本次执行序列） |
 
 ## 一、执行概况
@@ -19,20 +19,19 @@
 | 指标 | 数量 |
 | --- | --- |
 | 访问页面 | 7 |
-| 执行动作 | 91 |
+| 执行动作 | 88 |
 | 网络请求 | 4000 |
 | 失败请求 | 104 |
-| 控制台消息 | 152 |
+| 控制台消息 | 157 |
 | 新标签页 | 1 个已审计 / 29 个按 URL 策略跳过 |
-| **发现缺陷** | **26** |
-| 其中：第一方（被测站点自身） | 17 |
+| **发现缺陷** | **25** |
+| 其中：第一方（被测站点自身） | 16 |
 | 其中：第三方（内嵌的广告/统计/支付等） | 9 |
 
 ### 缺陷严重级分布
 
 | 严重级 | 数量 |
 | --- | --- |
-| 🟧 高 (high) | 1 |
 | 🟨 中 (medium) | 3 |
 | 🟦 低 (low) | 22 |
 
@@ -40,165 +39,87 @@
 
 | 类型 | 数量 |
 | --- | --- |
-| 未处理的 Promise 拒绝 (`unhandled-rejection`) | 1 |
 | 安全配置问题 (`security`) | 1 |
 | 资源加载失败 (`resource-error`) | 6 |
 | DOM 异常 (`dom-anomaly`) | 10 |
-| 性能劣化 (`performance`) | 1 |
 | 控制台 error 输出 (`console-error`) | 4 |
+| 性能劣化 (`performance`) | 1 |
 | 控制台 warn 输出 (`console-warning`) | 3 |
 
 ## 二、缺陷清单
 
 | # | 严重级 | 类型 | 标题 | 归属 | 次数 | 位置 |
 | --- | --- | --- | --- | --- | --- | --- |
-| F-0001 | 🟧 高 | 未处理的 Promise 拒绝 | 未处理的 Promise 拒绝：null | 第一方 | 1 | https://www.huya.com/l |
-| F-0002 | 🟨 中 | 安全配置问题 | 混合内容（HTTPS 页面加载 HTTP 资源） | 第一方 | 3 | https://www.huya.com/g/100032 |
-| F-0003 | 🟨 中 | 资源加载失败 | 元素 src 为空导致指向页面自身的无效请求 | 第一方 | 2 | https://www.huya.com/ |
-| F-0004 | 🟨 中 | DOM 异常 | 关键容器内容为空：ul#wrap-recomGame | 第一方 | 1 | https://www.huya.com/ |
-| F-0005 | 🟦 低 | 资源加载失败 | 资源加载失败：ql.njmapp.com:5284/ | 第三方 | 30 | https://www.huya.com/ |
-| F-0006 | 🟦 低 | 资源加载失败 | 资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business | 第三方 | 18 | https://www.huya.com/ |
-| F-0007 | 🟦 低 | 性能劣化 | 主线程长任务 350ms | 第一方 | 8 | https://www.huya.com/ |
-| F-0008 | 🟦 低 | 控制台 error 输出 | console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked… | 第三方 | 8 | https://www.huya.com/g/100032 |
-| F-0009 | 🟦 低 | 资源加载失败 | 资源加载失败：ql.njmapp.com:5283/ | 第三方 | 5 | https://www.huya.com/ |
-| F-0010 | 🟦 低 | DOM 异常 | 重复的元素 id：#live-0 | 第一方 | 5 | https://www.huya.com/ |
+| F-0001 | 🟨 中 | 安全配置问题 | 混合内容（HTTPS 页面加载 HTTP 资源） | 第一方 | 3 | https://www.huya.com/g/100032 |
+| F-0002 | 🟨 中 | 资源加载失败 | 元素 src 为空导致指向页面自身的无效请求 | 第一方 | 2 | https://www.huya.com/ |
+| F-0003 | 🟨 中 | DOM 异常 | 关键容器内容为空：ul#wrap-recomGame | 第一方 | 1 | https://www.huya.com/ |
+| F-0004 | 🟦 低 | 资源加载失败 | 资源加载失败：ql.njmapp.com:5284/ | 第三方 | 30 | https://www.huya.com/ |
+| F-0005 | 🟦 低 | 资源加载失败 | 资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business | 第三方 | 18 | https://www.huya.com/ |
+| F-0006 | 🟦 低 | 控制台 error 输出 | console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked… | 第三方 | 8 | https://www.huya.com/g/100032 |
+| F-0007 | 🟦 低 | 性能劣化 | 主线程长任务 281ms | 第一方 | 6 | https://www.huya.com/ |
+| F-0008 | 🟦 低 | 资源加载失败 | 资源加载失败：ql.njmapp.com:5283/ | 第三方 | 5 | https://www.huya.com/ |
+| F-0009 | 🟦 低 | DOM 异常 | 重复的元素 id：#live-0 | 第一方 | 5 | https://www.huya.com/ |
+| F-0010 | 🟦 低 | 资源加载失败 | 资源加载失败：hm.baidu.com/hm.js | 第三方 | 2 | https://www.huya.com/ |
 | F-0011 | 🟦 低 | 控制台 error 输出 | console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked… | 第三方 | 2 | https://www.huya.com/ |
-| F-0012 | 🟦 低 | 资源加载失败 | 资源加载失败：hm.baidu.com/hm.js | 第三方 | 2 | https://www.huya.com/ |
+| F-0012 | 🟦 低 | 控制台 warn 输出 | console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. … | 第一方 | 2 | https://www.huya.com/m |
 | F-0013 | 🟦 低 | 控制台 warn 输出 | console.warn：TTP 只能在直播间使用 | 第一方 | 1 | https://www.huya.com/ |
-| F-0014 | 🟦 低 | 控制台 error 输出 | console.error：Error: timeout | 第三方 | 1 | https://www.huya.com/ |
-| F-0015 | 🟦 低 | 资源加载失败 | 资源加载失败：hm.baidu.com/hm.js | 第三方 | 1 | https://www.huya.com/ |
+| F-0014 | 🟦 低 | 资源加载失败 | 资源加载失败：hm.baidu.com/hm.js | 第三方 | 1 | https://www.huya.com/ |
+| F-0015 | 🟦 低 | 控制台 error 输出 | console.error：Error: timeout | 第三方 | 1 | https://www.huya.com/ |
 | F-0016 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（4 个元素） | 第一方 | 1 | https://www.huya.com/ |
 | F-0017 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（6 个元素） | 第一方 | 1 | https://www.huya.com/g/100032 |
 | F-0018 | 🟦 低 | 控制台 warn 输出 | console.warn：TTP 只能在直播间使用 | 第一方 | 1 | https://www.huya.com/g/100032 |
 | F-0019 | 🟦 低 | 控制台 error 输出 | console.error：Error: timeout | 第三方 | 1 | https://www.huya.com/g/100032 |
 | F-0020 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（8 个元素） | 第一方 | 1 | https://www.huya.com/l |
 | F-0021 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g |
-| F-0022 | 🟦 低 | 控制台 warn 输出 | console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. … | 第一方 | 1 | https://www.huya.com/m |
-| F-0023 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/m |
-| F-0024 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g_ol |
-| F-0025 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g_pc |
-| F-0026 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g_yl |
+| F-0022 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/m |
+| F-0023 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g_ol |
+| F-0024 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g_pc |
+| F-0025 | 🟦 低 | DOM 异常 | 可交互元素缺少可访问名称（1 个元素） | 第一方 | 1 | https://www.huya.com/g_yl |
 
 ## 三、缺陷详情
 
-### F-0001 · 🟧 未处理的 Promise 拒绝：null
-
-- **类型**：未处理的 Promise 拒绝 `unhandled-rejection`
-- **严重级**：高 `high`
-- **归属**：第一方（被测站点自身）
-- **位置**：https://www.huya.com/l
-- **出现次数**：1
-- **首次发现**：2026-10-16T06:38:50.586Z
-- **签名**：`7ca4e62ef143`
-- **来源**：signal, inpage
-
-**现象**
-
-```text
-null
-```
-
-**复现步骤**
-
-1. 打开 https://www.huya.com/l
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
-23. → 观察到：null
-
-**证据**
-
-- 截图：`findings/7ca4e62ef143/screenshot.png`
-- DOM 快照：`findings/7ca4e62ef143/dom.html`
-- 控制台日志：`findings/7ca4e62ef143/console.log`
-- 网络记录：`findings/7ca4e62ef143/network.json`
-- 复现脚本：`findings/7ca4e62ef143/repro.spec.mjs`
-- 录像：`video/run-20261016-143820-huya-live.mp4`
-
-**上下文**
-
-```json
-{
-  "href": "https://www.huya.com/g",
-  "title": "虎牙直播-年轻人喜爱的弹幕式互动直播平台",
-  "readyState": "interactive",
-  "viewport": "1440x900",
-  "scroll": "0,0",
-  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-  "lang": "zh-CN",
-  "online": true,
-  "perf": {
-    "domContentLoaded": 165,
-    "load": 0
-  },
-  "source": "inpage",
-  "errorName": "Error",
-  "party": "first-party"
-}
-```
-
----
-
-### F-0002 · 🟨 混合内容（HTTPS 页面加载 HTTP 资源）
+### F-0001 · 🟨 混合内容（HTTPS 页面加载 HTTP 资源）
 
 - **类型**：安全配置问题 `security`
 - **严重级**：中 `medium`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g/100032
 - **出现次数**：3
-- **首次发现**：2026-10-16T06:38:37.454Z
+- **首次发现**：2026-10-16T07:51:09.270Z
 - **签名**：`cc79d8ac5d52`
 - **来源**：signal, console
 
 **现象**
 
 ```text
-混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/967499203-967499203-4155377435791065088-1935121862-10057-A-0-1-imgplus/20261016…。浏览器会拦截或降级这些请求，可能造成图片/样式/脚本在部分网络环境下静默失效。
+混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/1334368570-1334368570-5731069368960286720-2668860596-10057-A-0-1-imgplus/202610…。浏览器会拦截或降级这些请求，可能造成图片/样式/脚本在部分网络环境下静默失效。
 ```
 
 **复现步骤**
 
 1. 打开 https://www.huya.com/g/100032
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
-23. → 观察到：混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/967499203-967499203-4155377435791065088-19…
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
+23. → 观察到：混合内容：页面 www.huya.com 通过 HTTPS 加载了不安全的 HTTP 资源（来自 live-cover.msstatic.com）。例如：http://live-cover.msstatic.com/huyalive/1334368570-1334368570-5731069368960286720-…
 
 **证据**
 
@@ -221,8 +142,8 @@ null
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "console",
   "location": {
@@ -241,14 +162,14 @@ null
 
 ---
 
-### F-0003 · 🟨 元素 src 为空导致指向页面自身的无效请求
+### F-0002 · 🟨 元素 src 为空导致指向页面自身的无效请求
 
 - **类型**：资源加载失败 `resource-error`
 - **严重级**：中 `medium`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/
 - **出现次数**：2
-- **首次发现**：2026-10-16T06:38:28.525Z
+- **首次发现**：2026-10-16T07:51:00.364Z
 - **签名**：`6d84393d1a9b`
 - **来源**：signal, inpage
 
@@ -261,27 +182,27 @@ null
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：<img> 元素加载失败：该元素的 src 为空，浏览器将当前页面地址当作资源地址，发起了一次指向页面自身的无效请求。
 
 **证据**
@@ -305,8 +226,8 @@ null
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "inpage",
   "resourceUrl": "https://www.huya.com/",
@@ -317,14 +238,14 @@ null
 
 ---
 
-### F-0004 · 🟨 关键容器内容为空：ul#wrap-recomGame
+### F-0003 · 🟨 关键容器内容为空：ul#wrap-recomGame
 
 - **类型**：DOM 异常 `dom-anomaly`
 - **严重级**：中 `medium`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:28.537Z
+- **首次发现**：2026-10-16T07:51:00.397Z
 - **签名**：`4caffc007b19`
 - **来源**：dom-audit, empty-container
 
@@ -337,27 +258,27 @@ null
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：容器 ul#wrap-recomGame（尺寸 685×320）已渲染但既无文本也无媒体元素，疑似列表/播放器渲染失败。
 
 **证据**
@@ -381,8 +302,8 @@ null
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "dom-audit",
   "subtype": "empty-container",
@@ -395,14 +316,14 @@ null
 
 ---
 
-### F-0005 · 🟦 资源加载失败：ql.njmapp.com:5284/
+### F-0004 · 🟦 资源加载失败：ql.njmapp.com:5284/
 
 - **类型**：资源加载失败 `resource-error`
 - **严重级**：低 `low`
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/
 - **出现次数**：30
-- **首次发现**：2026-10-16T06:38:28.525Z
+- **首次发现**：2026-10-16T07:51:00.364Z
 - **签名**：`7387392f17a3`
 - **来源**：signal, requestfailed, third-party
 
@@ -415,27 +336,27 @@ net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/
 
 **证据**
@@ -459,8 +380,8 @@ net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "requestfailed",
   "resourceType": "xhr",
@@ -472,14 +393,14 @@ net::ERR_CONNECTION_REFUSED — xhr https://ql.njmapp.com:5284/
 
 ---
 
-### F-0006 · 🟦 资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business
+### F-0005 · 🟦 资源加载失败：localhost.weixin.qq.com:14019/wx_game_base/api/business
 
 - **类型**：资源加载失败 `resource-error`
 - **严重级**：低 `low`
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/
 - **出现次数**：18
-- **首次发现**：2026-10-16T06:38:28.525Z
+- **首次发现**：2026-10-16T07:51:00.365Z
 - **签名**：`117a3af621cd`
 - **来源**：signal, requestfailed, third-party
 
@@ -492,27 +413,27 @@ net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_gam
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_game_base/api/business
 
 **证据**
@@ -536,8 +457,8 @@ net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_gam
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "requestfailed",
   "resourceType": "xhr",
@@ -549,89 +470,14 @@ net::ERR_CONNECTION_REFUSED — xhr https://localhost.weixin.qq.com:14019/wx_gam
 
 ---
 
-### F-0007 · 🟦 主线程长任务 350ms
-
-- **类型**：性能劣化 `performance`
-- **严重级**：低 `low`
-- **归属**：第一方（被测站点自身）
-- **位置**：https://www.huya.com/
-- **出现次数**：8
-- **首次发现**：2026-10-16T06:38:28.524Z
-- **签名**：`44f9a05a7a09`
-- **来源**：signal, inpage, longtask
-
-**现象**
-
-```text
-检测到一次耗时 350ms 的长任务，会造成可感知的卡顿（阈值 250ms）。
-```
-
-**复现步骤**
-
-1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
-23. → 观察到：检测到一次耗时 350ms 的长任务，会造成可感知的卡顿（阈值 250ms）。
-
-**证据**
-
-- 截图：`findings/44f9a05a7a09/screenshot.png`
-- DOM 快照：`findings/44f9a05a7a09/dom.html`
-- 控制台日志：`findings/44f9a05a7a09/console.log`
-- 网络记录：`findings/44f9a05a7a09/network.json`
-- 复现脚本：`findings/44f9a05a7a09/repro.spec.mjs`
-
-**上下文**
-
-```json
-{
-  "href": "https://www.huya.com/g/100032",
-  "title": "主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播",
-  "readyState": "complete",
-  "viewport": "1440x900",
-  "scroll": "0,0",
-  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-  "lang": "zh-CN",
-  "online": true,
-  "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
-  },
-  "source": "longtask-observer",
-  "durationMs": 350,
-  "party": "first-party"
-}
-```
-
----
-
-### F-0008 · 🟦 console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked…
+### F-0006 · 🟦 console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked…
 
 - **类型**：控制台 error 输出 `console-error`
 - **严重级**：低 `low`
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/g/100032
 - **出现次数**：8
-- **首次发现**：2026-10-16T06:38:37.455Z
+- **首次发现**：2026-10-16T07:51:09.271Z
 - **签名**：`0cdabaf4a75d`
 - **来源**：signal, console, third-party
 
@@ -644,27 +490,27 @@ Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://w
 **复现步骤**
 
 1. 打开 https://www.huya.com/g/100032
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked by CORS policy: Permission was denied for this re…
 
 **证据**
@@ -688,8 +534,8 @@ Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://w
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "console",
   "resourceUrl": "https://ql.njmapp.com:5283/",
@@ -706,14 +552,89 @@ Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://w
 
 ---
 
-### F-0009 · 🟦 资源加载失败：ql.njmapp.com:5283/
+### F-0007 · 🟦 主线程长任务 281ms
+
+- **类型**：性能劣化 `performance`
+- **严重级**：低 `low`
+- **归属**：第一方（被测站点自身）
+- **位置**：https://www.huya.com/
+- **出现次数**：6
+- **首次发现**：2026-10-16T07:51:00.363Z
+- **签名**：`44f9a05a7a09`
+- **来源**：signal, inpage, longtask
+
+**现象**
+
+```text
+检测到一次耗时 281ms 的长任务，会造成可感知的卡顿（阈值 250ms）。
+```
+
+**复现步骤**
+
+1. 打开 https://www.huya.com/
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
+23. → 观察到：检测到一次耗时 281ms 的长任务，会造成可感知的卡顿（阈值 250ms）。
+
+**证据**
+
+- 截图：`findings/44f9a05a7a09/screenshot.png`
+- DOM 快照：`findings/44f9a05a7a09/dom.html`
+- 控制台日志：`findings/44f9a05a7a09/console.log`
+- 网络记录：`findings/44f9a05a7a09/network.json`
+- 复现脚本：`findings/44f9a05a7a09/repro.spec.mjs`
+
+**上下文**
+
+```json
+{
+  "href": "https://www.huya.com/g/100032",
+  "title": "主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播",
+  "readyState": "complete",
+  "viewport": "1440x900",
+  "scroll": "0,0",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "lang": "zh-CN",
+  "online": true,
+  "perf": {
+    "domContentLoaded": 872,
+    "load": 2474
+  },
+  "source": "longtask-observer",
+  "durationMs": 281,
+  "party": "first-party"
+}
+```
+
+---
+
+### F-0008 · 🟦 资源加载失败：ql.njmapp.com:5283/
 
 - **类型**：资源加载失败 `resource-error`
 - **严重级**：低 `low`
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/
 - **出现次数**：5
-- **首次发现**：2026-10-16T06:38:28.525Z
+- **首次发现**：2026-10-16T07:51:00.364Z
 - **签名**：`b37afc065f83`
 - **来源**：signal, requestfailed, third-party
 
@@ -726,27 +647,27 @@ net::ERR_FAILED — xhr https://ql.njmapp.com:5283/
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：net::ERR_FAILED — xhr https://ql.njmapp.com:5283/
 
 **证据**
@@ -770,8 +691,8 @@ net::ERR_FAILED — xhr https://ql.njmapp.com:5283/
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "requestfailed",
   "resourceType": "xhr",
@@ -783,14 +704,14 @@ net::ERR_FAILED — xhr https://ql.njmapp.com:5283/
 
 ---
 
-### F-0010 · 🟦 重复的元素 id：#live-0
+### F-0009 · 🟦 重复的元素 id：#live-0
 
 - **类型**：DOM 异常 `dom-anomaly`
 - **严重级**：低 `low`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/
 - **出现次数**：5
-- **首次发现**：2026-10-16T06:38:28.537Z
+- **首次发现**：2026-10-16T07:51:00.397Z
 - **签名**：`d4c5d6abe531`
 - **来源**：dom-audit, duplicate-id
 
@@ -803,27 +724,27 @@ id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器�
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器行为不确定。
 
 **证据**
@@ -847,8 +768,8 @@ id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器�
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "dom-audit",
   "subtype": "duplicate-id",
@@ -861,96 +782,14 @@ id #live-0 在文档中出现 12 次，会导致 label/aria 关联和选择器�
 
 ---
 
-### F-0011 · 🟦 console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked…
-
-- **类型**：控制台 error 输出 `console-error`
-- **严重级**：低 `low`
-- **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
-- **位置**：https://www.huya.com/
-- **出现次数**：2
-- **首次发现**：2026-10-16T06:38:28.525Z
-- **签名**：`3b0962266ad7`
-- **来源**：signal, console, third-party
-
-**现象**
-
-```text
-Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
-```
-
-**复现步骤**
-
-1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
-23. → 观察到：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked by CORS policy: Permission was denied for this re…
-
-**证据**
-
-- 截图：`findings/3b0962266ad7/screenshot.png`
-- DOM 快照：`findings/3b0962266ad7/dom.html`
-- 控制台日志：`findings/3b0962266ad7/console.log`
-- 网络记录：`findings/3b0962266ad7/network.json`
-- 复现脚本：`findings/3b0962266ad7/repro.spec.mjs`
-
-**上下文**
-
-```json
-{
-  "href": "https://www.huya.com/g/100032",
-  "title": "主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播",
-  "readyState": "complete",
-  "viewport": "1440x900",
-  "scroll": "0,0",
-  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-  "lang": "zh-CN",
-  "online": true,
-  "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
-  },
-  "source": "console",
-  "resourceUrl": "https://ql.njmapp.com:5283/",
-  "location": {
-    "url": "https://www.huya.com/",
-    "line": 0,
-    "column": 0,
-    "lineNumber": 0,
-    "columnNumber": 0
-  },
-  "party": "third-party"
-}
-```
-
----
-
-### F-0012 · 🟦 资源加载失败：hm.baidu.com/hm.js
+### F-0010 · 🟦 资源加载失败：hm.baidu.com/hm.js
 
 - **类型**：资源加载失败 `resource-error`
 - **严重级**：低 `low`
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/
 - **出现次数**：2
-- **首次发现**：2026-10-16T06:38:28.525Z
+- **首次发现**：2026-10-16T07:51:00.364Z
 - **签名**：`7b093463f79c`
 - **来源**：signal, requestfailed, third-party
 
@@ -963,27 +802,27 @@ net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f
 
 **证据**
@@ -1007,14 +846,177 @@ net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "requestfailed",
   "resourceType": "script",
   "resourceUrl": "https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f",
   "errorText": "net::ERR_NAME_NOT_RESOLVED",
   "party": "third-party"
+}
+```
+
+---
+
+### F-0011 · 🟦 console.error：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked…
+
+- **类型**：控制台 error 输出 `console-error`
+- **严重级**：低 `low`
+- **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
+- **位置**：https://www.huya.com/
+- **出现次数**：2
+- **首次发现**：2026-10-16T07:51:00.364Z
+- **签名**：`3b0962266ad7`
+- **来源**：signal, console, third-party
+
+**现象**
+
+```text
+Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked by CORS policy: Permission was denied for this request to access the `loopback` address space.
+```
+
+**复现步骤**
+
+1. 打开 https://www.huya.com/
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
+23. → 观察到：Access to XMLHttpRequest at 'https://ql.njmapp.com:5283/' from origin 'https://www.huya.com' has been blocked by CORS policy: Permission was denied for this re…
+
+**证据**
+
+- 截图：`findings/3b0962266ad7/screenshot.png`
+- DOM 快照：`findings/3b0962266ad7/dom.html`
+- 控制台日志：`findings/3b0962266ad7/console.log`
+- 网络记录：`findings/3b0962266ad7/network.json`
+- 复现脚本：`findings/3b0962266ad7/repro.spec.mjs`
+
+**上下文**
+
+```json
+{
+  "href": "https://www.huya.com/g/100032",
+  "title": "主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播",
+  "readyState": "complete",
+  "viewport": "1440x900",
+  "scroll": "0,0",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "lang": "zh-CN",
+  "online": true,
+  "perf": {
+    "domContentLoaded": 872,
+    "load": 2474
+  },
+  "source": "console",
+  "resourceUrl": "https://ql.njmapp.com:5283/",
+  "location": {
+    "url": "https://www.huya.com/",
+    "line": 0,
+    "column": 0,
+    "lineNumber": 0,
+    "columnNumber": 0
+  },
+  "party": "third-party"
+}
+```
+
+---
+
+### F-0012 · 🟦 console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. …
+
+- **类型**：控制台 warn 输出 `console-warning`
+- **严重级**：低 `low`
+- **归属**：第一方（被测站点自身）
+- **位置**：https://www.huya.com/m
+- **出现次数**：2
+- **首次发现**：2026-10-16T07:51:51.263Z
+- **签名**：`5c04bae3d5ef`
+- **来源**：signal, console
+
+**现象**
+
+```text
+The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
+```
+
+**复现步骤**
+
+1. 打开 https://www.huya.com/m
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
+23. → 观察到：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_au…
+
+**证据**
+
+- 截图：`findings/5c04bae3d5ef/screenshot.png`
+- DOM 快照：`findings/5c04bae3d5ef/dom.html`
+- 控制台日志：`findings/5c04bae3d5ef/console.log`
+- 网络记录：`findings/5c04bae3d5ef/network.json`
+- 复现脚本：`findings/5c04bae3d5ef/repro.spec.mjs`
+
+**上下文**
+
+```json
+{
+  "href": "https://www.huya.com/m",
+  "title": "赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播",
+  "readyState": "complete",
+  "viewport": "1440x900",
+  "scroll": "0,0",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "lang": "zh-CN",
+  "online": true,
+  "perf": {
+    "domContentLoaded": 369,
+    "load": 661
+  },
+  "source": "console",
+  "location": {
+    "url": "https://a.msstatic.com/huya/h5player/room/homePlayer/202609221711/vplayer.js",
+    "line": 2,
+    "column": 0,
+    "lineNumber": 2,
+    "columnNumber": 0
+  },
+  "party": "first-party"
 }
 ```
 
@@ -1027,7 +1029,7 @@ net::ERR_NAME_NOT_RESOLVED — script https://hm.baidu.com/hm.js?51700b6c722f5bb
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:28.524Z
+- **首次发现**：2026-10-16T07:51:00.362Z
 - **签名**：`a7ef8dd58511`
 - **来源**：signal, console
 
@@ -1040,27 +1042,27 @@ TTP 只能在直播间使用
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：TTP 只能在直播间使用
 
 **证据**
@@ -1084,8 +1086,8 @@ TTP 只能在直播间使用
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "console",
   "location": {
@@ -1101,14 +1103,90 @@ TTP 只能在直播间使用
 
 ---
 
-### F-0014 · 🟦 console.error：Error: timeout
+### F-0014 · 🟦 资源加载失败：hm.baidu.com/hm.js
+
+- **类型**：资源加载失败 `resource-error`
+- **严重级**：低 `low`
+- **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
+- **位置**：https://www.huya.com/
+- **出现次数**：1
+- **首次发现**：2026-10-16T07:51:00.364Z
+- **签名**：`4a7fa83900a2`
+- **来源**：signal, inpage, third-party
+
+**现象**
+
+```text
+<script> 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f
+```
+
+**复现步骤**
+
+1. 打开 https://www.huya.com/
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
+23. → 观察到：<script> 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f
+
+**证据**
+
+- 截图：`findings/4a7fa83900a2/screenshot.png`
+- DOM 快照：`findings/4a7fa83900a2/dom.html`
+- 控制台日志：`findings/4a7fa83900a2/console.log`
+- 网络记录：`findings/4a7fa83900a2/network.json`
+- 复现脚本：`findings/4a7fa83900a2/repro.spec.mjs`
+
+**上下文**
+
+```json
+{
+  "href": "https://www.huya.com/g/100032",
+  "title": "主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播",
+  "readyState": "complete",
+  "viewport": "1440x900",
+  "scroll": "0,0",
+  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+  "lang": "zh-CN",
+  "online": true,
+  "perf": {
+    "domContentLoaded": 872,
+    "load": 2474
+  },
+  "source": "inpage",
+  "resourceUrl": "https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f",
+  "subtype": "load-failure",
+  "party": "third-party"
+}
+```
+
+---
+
+### F-0015 · 🟦 console.error：Error: timeout
 
 - **类型**：控制台 error 输出 `console-error`
 - **严重级**：低 `low`
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:28.525Z
+- **首次发现**：2026-10-16T07:51:00.365Z
 - **签名**：`be93003bf53b`
 - **来源**：signal, console, third-party
 
@@ -1124,27 +1202,27 @@ Error: timeout
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：Error: timeout
     at https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167
     at Generator.throw (<anonymous>)
@@ -1171,8 +1249,8 @@ Error: timeout
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "console",
   "resourceUrl": "https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167",
@@ -1189,82 +1267,6 @@ Error: timeout
 
 ---
 
-### F-0015 · 🟦 资源加载失败：hm.baidu.com/hm.js
-
-- **类型**：资源加载失败 `resource-error`
-- **严重级**：低 `low`
-- **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
-- **位置**：https://www.huya.com/
-- **出现次数**：1
-- **首次发现**：2026-10-16T06:38:28.525Z
-- **签名**：`4a7fa83900a2`
-- **来源**：signal, inpage, third-party
-
-**现象**
-
-```text
-<script> 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f
-```
-
-**复现步骤**
-
-1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
-23. → 观察到：<script> 元素加载失败 https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f
-
-**证据**
-
-- 截图：`findings/4a7fa83900a2/screenshot.png`
-- DOM 快照：`findings/4a7fa83900a2/dom.html`
-- 控制台日志：`findings/4a7fa83900a2/console.log`
-- 网络记录：`findings/4a7fa83900a2/network.json`
-- 复现脚本：`findings/4a7fa83900a2/repro.spec.mjs`
-
-**上下文**
-
-```json
-{
-  "href": "https://www.huya.com/g/100032",
-  "title": "主机游戏直播_主机游戏直播攻略_主机游戏直播专区_虎牙直播",
-  "readyState": "complete",
-  "viewport": "1440x900",
-  "scroll": "0,0",
-  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-  "lang": "zh-CN",
-  "online": true,
-  "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
-  },
-  "source": "inpage",
-  "resourceUrl": "https://hm.baidu.com/hm.js?51700b6c722f5bb4cf39906a596ea41f",
-  "subtype": "load-failure",
-  "party": "third-party"
-}
-```
-
----
-
 ### F-0016 · 🟦 可交互元素缺少可访问名称（4 个元素）
 
 - **类型**：DOM 异常 `dom-anomaly`
@@ -1272,7 +1274,7 @@ Error: timeout
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:28.537Z
+- **首次发现**：2026-10-16T07:51:00.397Z
 - **签名**：`36d8c73ed194`
 - **来源**：dom-audit, nameless-control
 
@@ -1285,27 +1287,27 @@ Error: timeout
 **复现步骤**
 
 1. 打开 https://www.huya.com/
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 4 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.left-banner.clickstat | a.right-banner.clickstat | a.preview-pic-link.cl…
 
 **证据**
@@ -1329,8 +1331,8 @@ Error: timeout
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -1350,7 +1352,7 @@ Error: timeout
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g/100032
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:37.412Z
+- **首次发现**：2026-10-16T07:51:09.238Z
 - **签名**：`bfd87947f476`
 - **来源**：dom-audit, nameless-control
 
@@ -1363,27 +1365,27 @@ Error: timeout
 **复现步骤**
 
 1. 打开 https://www.huya.com/g/100032
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 6 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem | a.j_bannerItem
 
 **证据**
@@ -1407,8 +1409,8 @@ Error: timeout
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -1428,7 +1430,7 @@ Error: timeout
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g/100032
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:37.455Z
+- **首次发现**：2026-10-16T07:51:09.271Z
 - **签名**：`18551b02ec90`
 - **来源**：signal, console
 
@@ -1441,27 +1443,27 @@ TTP 只能在直播间使用
 **复现步骤**
 
 1. 打开 https://www.huya.com/g/100032
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：TTP 只能在直播间使用
 
 **证据**
@@ -1485,8 +1487,8 @@ TTP 只能在直播间使用
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "console",
   "location": {
@@ -1509,7 +1511,7 @@ TTP 只能在直播间使用
 - **归属**：第三方（内嵌的广告/统计/支付等，通常不由被测站点直接控制）
 - **位置**：https://www.huya.com/g/100032
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:37.455Z
+- **首次发现**：2026-10-16T07:51:09.272Z
 - **签名**：`7dead1205030`
 - **来源**：signal, console, third-party
 
@@ -1525,27 +1527,27 @@ Error: timeout
 **复现步骤**
 
 1. 打开 https://www.huya.com/g/100032
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：Error: timeout
     at https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167
     at Generator.throw (<anonymous>)
@@ -1572,8 +1574,8 @@ Error: timeout
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 1003,
-    "load": 3134
+    "domContentLoaded": 872,
+    "load": 2474
   },
   "source": "console",
   "resourceUrl": "https://game.weixin.qq.com/cgi-bin/minigame/static/pc-gamesdk-alpha/wxgamesdkframe.html:1:9167",
@@ -1597,7 +1599,7 @@ Error: timeout
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/l
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:38:50.601Z
+- **首次发现**：2026-10-16T07:51:22.356Z
 - **签名**：`63c9aa0fab85`
 - **来源**：dom-audit, nameless-control
 
@@ -1610,27 +1612,27 @@ Error: timeout
 **复现步骤**
 
 1. 打开 https://www.huya.com/l
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 8 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat | a.preview-pic-link.clickstat | a.item-link | a.item-link | a.item-link | a…
 
 **证据**
@@ -1654,7 +1656,7 @@ Error: timeout
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 165,
+    "domContentLoaded": 285,
     "load": 0
   },
   "source": "dom-audit",
@@ -1675,7 +1677,7 @@ Error: timeout
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:39:01.462Z
+- **首次发现**：2026-10-16T07:51:33.155Z
 - **签名**：`f6e6e4b5525f`
 - **来源**：dom-audit, nameless-control
 
@@ -1688,27 +1690,27 @@ Error: timeout
 **复现步骤**
 
 1. 打开 https://www.huya.com/g
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat
 
 **证据**
@@ -1725,15 +1727,15 @@ Error: timeout
 {
   "href": "https://www.huya.com/m",
   "title": "赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播",
-  "readyState": "complete",
+  "readyState": "interactive",
   "viewport": "1440x900",
   "scroll": "0,0",
   "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 790,
-    "load": 1038
+    "domContentLoaded": 730,
+    "load": 0
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -1746,95 +1748,14 @@ Error: timeout
 
 ---
 
-### F-0022 · 🟦 console.warn：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. …
-
-- **类型**：控制台 warn 输出 `console-warning`
-- **严重级**：低 `low`
-- **归属**：第一方（被测站点自身）
-- **位置**：https://www.huya.com/m
-- **出现次数**：1
-- **首次发现**：2026-10-16T06:39:19.965Z
-- **签名**：`5c04bae3d5ef`
-- **来源**：signal, console
-
-**现象**
-
-```text
-The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio
-```
-
-**复现步骤**
-
-1. 打开 https://www.huya.com/m
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
-23. → 观察到：The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_au…
-
-**证据**
-
-- 截图：`findings/5c04bae3d5ef/screenshot.png`
-- DOM 快照：`findings/5c04bae3d5ef/dom.html`
-- 控制台日志：`findings/5c04bae3d5ef/console.log`
-- 网络记录：`findings/5c04bae3d5ef/network.json`
-- 复现脚本：`findings/5c04bae3d5ef/repro.spec.mjs`
-
-**上下文**
-
-```json
-{
-  "href": "https://www.huya.com/m",
-  "title": "赛事直播_电竞赛事直播_游戏赛事直播 - 虎牙直播",
-  "readyState": "complete",
-  "viewport": "1440x900",
-  "scroll": "0,0",
-  "ua": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
-  "lang": "zh-CN",
-  "online": true,
-  "perf": {
-    "domContentLoaded": 266,
-    "load": 912
-  },
-  "source": "console",
-  "location": {
-    "url": "https://a.msstatic.com/huya/h5player/room/homePlayer/202609221711/vplayer.js",
-    "line": 2,
-    "column": 0,
-    "lineNumber": 2,
-    "columnNumber": 0
-  },
-  "party": "first-party"
-}
-```
-
----
-
-### F-0023 · 🟦 可交互元素缺少可访问名称（1 个元素）
+### F-0022 · 🟦 可交互元素缺少可访问名称（1 个元素）
 
 - **类型**：DOM 异常 `dom-anomaly`
 - **严重级**：低 `low`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/m
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:39:19.973Z
+- **首次发现**：2026-10-16T07:51:51.274Z
 - **签名**：`c4852d82da05`
 - **来源**：dom-audit, nameless-control
 
@@ -1847,27 +1768,27 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 **复现步骤**
 
 1. 打开 https://www.huya.com/m
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat
 
 **证据**
@@ -1891,8 +1812,8 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 266,
-    "load": 912
+    "domContentLoaded": 369,
+    "load": 661
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -1905,14 +1826,14 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 
 ---
 
-### F-0024 · 🟦 可交互元素缺少可访问名称（1 个元素）
+### F-0023 · 🟦 可交互元素缺少可访问名称（1 个元素）
 
 - **类型**：DOM 异常 `dom-anomaly`
 - **严重级**：低 `low`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g_ol
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:39:54.821Z
+- **首次发现**：2026-10-16T07:52:22.655Z
 - **签名**：`723527950083`
 - **来源**：dom-audit, nameless-control
 
@@ -1925,27 +1846,27 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 **复现步骤**
 
 1. 打开 https://www.huya.com/g_ol
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat
 
 **证据**
@@ -1969,8 +1890,8 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 507,
-    "load": 1035
+    "domContentLoaded": 450,
+    "load": 1918
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -1983,14 +1904,14 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 
 ---
 
-### F-0025 · 🟦 可交互元素缺少可访问名称（1 个元素）
+### F-0024 · 🟦 可交互元素缺少可访问名称（1 个元素）
 
 - **类型**：DOM 异常 `dom-anomaly`
 - **严重级**：低 `low`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g_pc
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:41:09.059Z
+- **首次发现**：2026-10-16T07:53:40.816Z
 - **签名**：`77dda417c430`
 - **来源**：dom-audit, nameless-control
 
@@ -2003,27 +1924,27 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 **复现步骤**
 
 1. 打开 https://www.huya.com/g_pc
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat
 
 **证据**
@@ -2047,8 +1968,8 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 446,
-    "load": 687
+    "domContentLoaded": 416,
+    "load": 890
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -2061,14 +1982,14 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 
 ---
 
-### F-0026 · 🟦 可交互元素缺少可访问名称（1 个元素）
+### F-0025 · 🟦 可交互元素缺少可访问名称（1 个元素）
 
 - **类型**：DOM 异常 `dom-anomaly`
 - **严重级**：低 `low`
 - **归属**：第一方（被测站点自身）
 - **位置**：https://www.huya.com/g_yl
 - **出现次数**：1
-- **首次发现**：2026-10-16T06:42:35.348Z
+- **首次发现**：2026-10-16T07:55:10.139Z
 - **签名**：`77fb05773d4b`
 - **来源**：dom-audit, nameless-control
 
@@ -2081,27 +2002,27 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 **复现步骤**
 
 1. 打开 https://www.huya.com/g_yl
-2. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 middle
-3. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
-4. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
-5. 将 li.g-gameCard-item:nth-of-type(11) > a.g-gameCard-link 滚动到 middle
-6. 悬停 body
-7. 将 window 滚动到 bottom
-8. 将 window 滚动到 middle
-9. 将 window 滚动到 top
-10. 点击 #hy-nav-category（分类）
-11. 点击 #hy-nav-match（赛事）
-12. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
-13. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
-14. 点击 .game-live-item（.game-live-item）
-15. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
-16. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
-17. 点击 button.btn-search.clickstat
-18. 在 #search-bar-input 输入 "99999999999999999999"
-19. 提交表单 #search-bar-input
-20. 将 window 滚动到 bottom
-21. 将 window 滚动到 top
-22. 悬停 #hy-nav-match
+2. 将 window 滚动到 top
+3. 悬停 #hy-nav-category
+4. 将 li.g-gameCard-item:nth-of-type(37) > a.g-gameCard-link 滚动到 middle
+5. 将 a.nav-item--UdfNzw8I7o4KWF3OPzCc:nth-of-type(5) 滚动到 bottom
+6. 将 li.g-gameCard-item:nth-of-type(10) > a.g-gameCard-link 滚动到 middle
+7. 悬停 body
+8. 将 window 滚动到 bottom
+9. 将 window 滚动到 middle
+10. 将 window 滚动到 top
+11. 点击 #hy-nav-category（分类）
+12. 点击 #hy-nav-match（赛事）
+13. 点击 #J_hyHdNavItemGame（#J_hyHdNavItemGame）
+14. 点击 #J_hyHdNavItemShop（#J_hyHdNavItemShop）
+15. 点击 .game-live-item（.game-live-item）
+16. 点击 .hy-nav-link-onlineGame（.hy-nav-link-onlineGame）
+17. 点击 a.hy-nav-link.hy-nav-link-shop（卖号）
+18. 点击 button.btn-search.clickstat
+19. 在 #search-bar-input 输入 "英雄联盟"
+20. 提交表单 #search-bar-input
+21. 将 window 滚动到 bottom
+22. 将 window 滚动到 top
 23. → 观察到：页面上有 1 个元素 既无可见文本也无 aria-label / title，屏幕阅读器无法识别其用途。例如：button.btn-search.clickstat
 
 **证据**
@@ -2125,8 +2046,8 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
   "lang": "zh-CN",
   "online": true,
   "perf": {
-    "domContentLoaded": 381,
-    "load": 691
+    "domContentLoaded": 433,
+    "load": 706
   },
   "source": "dom-audit",
   "subtype": "nameless-control",
@@ -2143,7 +2064,7 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 
 - 已访问页面：7
 - 已发现链接：7
-- 跳过链接：16
+- 跳过链接：15
 
 <details><summary>已访问页面列表</summary>
 
@@ -2184,7 +2105,7 @@ The AudioContext was not allowed to start. It must be resumed (or created) after
 
 ## 五、运行录像
 
-- 录像文件：`artifacts/video/run-20261016-143820-huya-live.mp4`
+- 录像文件：`artifacts/video/run-20261016-155046-huya-live.mp4`
 
 ---
 

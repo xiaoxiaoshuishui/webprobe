@@ -313,6 +313,20 @@ export const DOM_AUDIT_SCRIPT = () => {
   };
 
   /**
+   * The platform draws its own overlay into the page (see hud.mjs) so that the
+   * screen recording shows the findings. That overlay is not part of the
+   * software under test, so every audit rule must ignore it — otherwise the
+   * tool reports its own UI as a defect of the site.
+   */
+  const isOurs = (node) => {
+    try {
+      return !!(node && node.closest && node.closest('[data-webprobe]'));
+    } catch (e) {
+      return false;
+    }
+  };
+
+  /**
    * Is this element actually painted? `getBoundingClientRect` is not enough:
    * content inside a closed <details> still reports a box in current Chromium
    * while never being rendered, so a plain rect test marks hidden markup as a
@@ -341,6 +355,7 @@ export const DOM_AUDIT_SCRIPT = () => {
   while ((node = walker.nextNode())) {
     const parent = node.parentElement;
     if (!parent || seenNodes.has(parent)) continue;
+    if (isOurs(parent)) continue;
     const text = (node.nodeValue || '').trim();
     if (!text || text.length > 400) continue;
     if (!visible(parent)) continue;
@@ -355,8 +370,10 @@ export const DOM_AUDIT_SCRIPT = () => {
   }
 
   /* 2. broken / refused images ------------------------------------------ */
-  for (const img of Array.from(document.images || []).slice(0, 400)) {    if (!img.getAttribute('src')) continue;
+  for (const img of Array.from(document.images || []).slice(0, 400)) {
+    if (!img.getAttribute('src')) continue;
     if (img.getAttribute('data-webprobe-ignore') !== null) continue;
+    if (isOurs(img)) continue;
     if (!img.complete) continue;
     if (img.naturalWidth === 0 && img.naturalHeight === 0) {
       push({
@@ -375,6 +392,7 @@ export const DOM_AUDIT_SCRIPT = () => {
   const KEY_RE = /(^|[-_ ])(app|root|main|content|container|list|feed|grid|results?|items?)([-_ ]|$)/i;
   const SKIP_RE = /(player|video|water|overlay|mask|\blayer\b|\bad\b|banner|modal|dialog|tooltip|popup|skeleton|loading|placeholder|toast|carousel|swiper|marquee|scroll)/i;
   for (const el of Array.from(document.querySelectorAll('div,section,main,ul,ol')).slice(0, 600)) {
+    if (isOurs(el)) continue;
     const sig = `${el.id} ${typeof el.className === 'string' ? el.className : ''}`;
     if (!KEY_RE.test(sig) || SKIP_RE.test(sig)) continue;
     if (!rendered(el)) continue;
@@ -400,8 +418,10 @@ export const DOM_AUDIT_SCRIPT = () => {
   }
 
   /* 5. blank screen ------------------------------------------------------ */
+  // The overlay lives outside <body>, so body.innerText already measures only
+  // the software under test. The visual test still has to skip our own nodes.
   const bodyText = (document.body?.innerText || '').replace(/\s+/g, '');
-  const hasVisual = !!document.querySelector('img,video,canvas,svg,iframe');
+  const hasVisual = Array.from(document.querySelectorAll('img,video,canvas,svg,iframe')).some((n) => !isOurs(n));
   if (document.readyState === 'complete' && bodyText.length < 16 && !hasVisual) {
     push({ type: 'blank-screen', selector: 'body', detail: `可见文本 ${bodyText.length} 字`, text: bodyText.slice(0, 120) });
   }
@@ -411,6 +431,7 @@ export const DOM_AUDIT_SCRIPT = () => {
   for (const el of Array.from(document.querySelectorAll('[id]')).slice(0, 1500)) {
     // An empty id attribute is not a duplicate id; reporting `#` is meaningless.
     if (!el.id) continue;
+    if (isOurs(el)) continue;
     idCount.set(el.id, (idCount.get(el.id) || 0) + 1);
   }
   const dupes = [...idCount.entries()].filter(([, n]) => n > 1).slice(0, 5);
@@ -422,6 +443,7 @@ export const DOM_AUDIT_SCRIPT = () => {
   const nameless = [];
   for (const el of Array.from(document.querySelectorAll('button,[role="button"],a[href]')).slice(0, 600)) {
     if (!rendered(el)) continue;
+    if (isOurs(el)) continue;
     const name = (
       el.getAttribute('aria-label') ||
       el.getAttribute('title') ||

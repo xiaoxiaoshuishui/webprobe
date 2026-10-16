@@ -43,18 +43,27 @@ export class Recorder {
    * @param {number} [opts.quality]  JPEG quality 1..100
    * @param {number} [opts.maxWidth] downscale frames wider than this
    * @param {number} [opts.maxFrames] hard cap so a long run cannot fill the disk
+   * @param {number} [opts.minIntervalMs] throttle: keep at most one frame per
+   *   interval. Chrome emits a screencast frame on every paint, which on a
+   *   busy page is hundreds per second — enough to exhaust any frame budget in
+   *   the first third of a run and truncate the recording before its ending.
+   *   Throttling keeps the whole run (including the closing summary card)
+   *   inside the budget, while per-frame timestamps still preserve real speed.
    */
-  constructor({ dir, quality = 62, maxWidth = 1280, maxFrames = 4000, logger } = {}) {
+  constructor({ dir, quality = 62, maxWidth = 1280, maxFrames = 6000, minIntervalMs = 100, logger } = {}) {
     this.dir = dir;
     this.framesDir = path.join(dir, 'frames');
     this.quality = quality;
     this.maxWidth = maxWidth;
     this.maxFrames = maxFrames;
+    this.minIntervalMs = minIntervalMs;
     this.logger = logger;
     this.frames = [];
     this.running = false;
     this.error = null;
     this.startedAt = null;
+    this.dropped = 0;
+    this._lastStoredAt = -Infinity;
     this._cdp = null;
     this._page = null;
   }
@@ -85,22 +94,31 @@ export class Recorder {
   }
 
   async _onFrame(evt) {
-    if (!this.running) return;
-    try {
-      if (this.frames.length < this.maxFrames) {
-        const n = String(this.frames.length + 1).padStart(6, '0');
-        const file = path.join(this.framesDir, `frame-${n}.jpg`);
-        // Timestamps drive playback speed: remember when this frame appeared.
-        this.frames.push({ file, t: Date.now() - this.startedAt });
-        await fsp.writeFile(file, Buffer.from(evt.data, 'base64'));
+    // Every frame must be acknowledged or Chromium stops sending them — even
+    // the ones deliberately dropped by the throttle.
+    if (this.running) {
+      const t = Date.now() - this.startedAt;
+      const due = t - this._lastStoredAt >= this.minIntervalMs;
+      if (!due) {
+        this.dropped++;
+      } else if (this.frames.length < this.maxFrames) {
+        this._lastStoredAt = t;
+        try {
+          const n = String(this.frames.length + 1).padStart(6, '0');
+          const file = path.join(this.framesDir, `frame-${n}.jpg`);
+          // Timestamps drive playback speed: remember when this frame appeared.
+          this.frames.push({ file, t });
+          await fsp.writeFile(file, Buffer.from(evt.data, 'base64'));
+        } catch (err) {
+          this.error = err.message;
+        }
+      } else {
+        this.dropped++;
       }
-    } catch (err) {
-      this.error = err.message;
-    } finally {
-      try {
-        await this._cdp?.send('Page.screencastFrameAck', { sessionId: evt.sessionId });
-      } catch { /* page may have navigated away */ }
     }
+    try {
+      await this._cdp?.send('Page.screencastFrameAck', { sessionId: evt.sessionId });
+    } catch { /* page may have navigated away */ }
   }
 
   /** Pause capture (used around long, uninteresting waits). */
@@ -114,6 +132,9 @@ export class Recorder {
    * @returns {{video?:string, frames:number, frameDir:string, note?:string}}
    */
   async stop({ fileName = 'run.mp4' } = {}) {
+    // Capture the real end time before tearing the session down: it becomes the
+    // duration of the last frame.
+    const endedAt = this.startedAt ? Date.now() - this.startedAt : 0;
     if (this._cdp) {
       try { await this._cdp.send('Page.stopScreencast'); } catch {}
       try { await this._cdp.detach(); } catch {}
@@ -121,7 +142,7 @@ export class Recorder {
     }
     this.running = false;
 
-    const result = { frames: this.frames.length, frameDir: this.framesDir };
+    const result = { frames: this.frames.length, frameDir: this.framesDir, dropped: this.dropped };
     if (this.frames.length === 0) {
       result.note = '没有捕获到任何帧（页面可能在录像前就崩溃了）';
       return result;
@@ -139,7 +160,15 @@ export class Recorder {
       for (let i = 0; i < this.frames.length; i++) {
         const f = this.frames[i];
         const next = this.frames[i + 1];
-        const dur = next ? Math.max(0.04, (next.t - f.t) / 1000) : 0.5;
+        // Frames carry the moment they appeared, so playback follows the real
+        // pace of the run. The final frame has no successor: hold it until the
+        // recorder actually stopped. Hardcoding a short duration here silently
+        // truncated the recording — and since a still page emits no new frames,
+        // it cut off the closing summary card, which is the one thing a viewer
+        // must be able to read.
+        const dur = next
+          ? Math.max(0.04, (next.t - f.t) / 1000)
+          : Math.max(0.5, (endedAt - f.t) / 1000);
         lines.push(`file '${f.file.replace(/\\/g, '/').replace(/'/g, "'\\''")}'`);
         lines.push(`duration ${dur.toFixed(3)}`);
       }

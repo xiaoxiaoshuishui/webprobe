@@ -77,6 +77,9 @@ run 选项：
   --duration, -d <秒>     整轮测试时间预算
   --output, -o <dir>      报告输出目录（默认 runs/）
   --no-record             不录制运行视频
+  --no-hud                不在被测页面里叠加状态面板与缺陷信息（录像将只剩下页面本身）
+  --intro <秒>            开场信息卡停留时长（默认 5 秒，0 = 不显示）
+  --outro <秒>            结尾结果卡停留时长（默认 13 秒，0 = 不显示）
   --no-fuzz               只做被动观察与 DOM 审计，不主动模糊测试
   --json                  把最终 RunReport 打印到 stdout（便于 CI 解析）
   --verbose, -v           输出调试日志
@@ -114,6 +117,9 @@ async function cmdRun(argv) {
     maxActions: flags['max-actions'] ? Number(flags['max-actions']) : bound.budget.maxActionsPerPage,
     maxDurationMs: flags.duration ? Number(flags.duration) * 1000 : bound.budget.maxDurationMs,
     fuzz: flags['no-fuzz'] ? false : undefined,
+    hud: !flags['no-hud'],
+    introSeconds: flags.intro !== undefined ? Number(flags.intro) : undefined,
+    outroSeconds: flags.outro !== undefined ? Number(flags.outro) : undefined,
     knownSignatures: known,
   }).finally(() => closeTarget(bound));
 

@@ -60,32 +60,35 @@
 
 ## 实测结果：虎牙直播
 
-一次真实运行（`runs/run-20261016-143820-huya-live/`）：
+一次真实运行（`runs/run-20261016-155046-huya-live/`）：
 
 ```
-时长 5分18秒 · 访问页面 7 · 执行动作 91 · 网络请求 4000（失败 104） · 新标签页 30（审计 1，按策略跳过 29）
-发现缺陷 26 个（严重 0 · 高 1 · 中 3 · 低 22）
-其中第一方（虎牙自身）17 个 · 第三方（内嵌广告/统计/微信小游戏 SDK）9 个
+时长 5分23秒 · 访问页面 7 · 执行动作 88 · 网络请求 4000（失败 104） · 新标签页 30（审计 1，按策略跳过 29）
+发现缺陷 25 个（严重 0 · 高 0 · 中 3 · 低 22）
+其中第一方（虎牙自身）16 个 · 第三方（内嵌广告/统计/微信小游戏 SDK）9 个
 ```
 
 被访问页面：首页、`/l` 全部直播、`/g` 游戏分类、`/m` 手游站、`/g_ol`、`/g_pc`、`/g_yl`。
 
+> 线上内容与第三方请求实时变化，**每次运行的缺陷集合不会完全一致**。
+> 早期几轮运行还捕获到过一个高危缺陷：`/l` 页面抛出**未处理的 Promise 拒绝且原因为 `null`**
+> （异步链路完全静默失败）。种子 `20261016` 保证的是**平台自身执行序列**的可复现。
+
 ### 找到的代表性缺陷
 
-| 编号 | 严重级 | 类型 | 说明 | 位置 |
-| --- | --- | --- | --- | --- |
-| F-0001 | 🟧 高 | 未处理的 Promise 拒绝 | 页面抛出 `unhandledrejection` 且拒绝原因是 `null`，异步链路完全静默失败 | `/l` |
-| F-0002 | 🟨 中 | 混合内容 | HTTPS 页面加载了 `http://live-cover.msstatic.com/...` 的不安全图片，浏览器会拦截或降级（出现 3 次） | `/g/100032` |
-| F-0003 | 🟨 中 | 资源加载失败 | 存在 `<img src="">`，**空 src 被解析为当前页面地址**，导致对页面本身发起无效请求（出现 2 次） | 首页 |
-| F-0004 | 🟨 中 | DOM 异常 | 关键容器 `ul#wrap-recomGame`（685×320）已渲染却既无文本也无媒体元素，疑似推荐列表渲染失败 | 首页 |
-| — | 🟦 低 | DOM 异常 | `id="live-0"` 在同一份文档中**重复出现 12 次**，会让 `label`/`aria` 关联与选择器行为不确定 | 首页 |
-| — | 🟦 低 | 可访问性 | 顶部搜索按钮 `button.btn-search.clickstat`、左右广告位 `a.left-banner`/`a.right-banner` 等可交互元素没有可访问名称 | 多页 |
-| — | 🟦 低 | 性能 | 多次 250–400ms 的主线程长任务 | 多页 |
-| — | 🟦 低 | 第三方 | 内嵌 SDK（`ql.njmapp.com`、`localhost.weixin.qq.com`、`hm.baidu.com`）的请求大量失败——**已按第三方降级并打标签**，不与被测站点自身缺陷混为一谈 | 多页 |
+| 严重级 | 类型 | 说明 | 位置 |
+| --- | --- | --- | --- |
+| 🟨 中 | 混合内容 | HTTPS 页面加载了 `http://live-cover.msstatic.com/...` 的不安全图片，浏览器会拦截或降级 | `/g/100032` |
+| 🟨 中 | 资源加载失败 | 存在 `<img src="">`，**空 src 被解析为当前页面地址**，导致对页面本身发起无效请求 | 首页 |
+| 🟨 中 | DOM 异常 | 关键容器 `ul#wrap-recomGame`（685×320）已渲染却既无文本也无媒体元素，疑似推荐列表渲染失败 | 首页 |
+| 🟦 低 | DOM 异常 | `id="live-0"` 在同一份文档中**重复出现 12 次**，会让 `label`/`aria` 关联与选择器行为不确定 | 首页 |
+| 🟦 低 | 可访问性 | 顶部搜索按钮 `button.btn-search.clickstat`、左右广告位 `a.left-banner`/`a.right-banner` 等可交互元素没有可访问名称 | 多页 |
+| 🟦 低 | 性能 | 多次 250–400ms 的主线程长任务 | 多页 |
+| 🟦 低 | 第三方 | 内嵌 SDK（`ql.njmapp.com`、`localhost.weixin.qq.com`、`hm.baidu.com`）的请求大量失败——**已按第三方降级并打标签**，不与被测站点自身缺陷混为一谈 | 多页 |
 
 > 完整报告：[`video/huya-live-report.html`](video/huya-live-report.html)（离线可直接打开）
 > · [Markdown 版](video/huya-live-report.md)
-> · 运行录像：[`video/huya-live-test-run.mp4`](video/huya-live-test-run.mp4)
+> · 运行录像：[`video/huya-live-test-run.mp4`](video/huya-live-test-run.mp4)（说明见 [`video/README.md`](video/README.md)）
 > · 控制台完整输出：[`video/huya-live-console.log`](video/huya-live-console.log)
 
 ---
@@ -158,6 +161,8 @@ webprobe kinds                                   列出全部缺陷类型
 | `--max-actions, -m <n>` | 每页最多执行动作数 |
 | `--duration, -d <秒>` | 整轮时间预算 |
 | `--no-record` | 不录制运行视频 |
+| `--no-hud` | 不在被测页面里叠加状态面板与缺陷信息（录像将只剩下页面本身） |
+| `--intro <秒>` / `--outro <秒>` | 开场信息卡 / 结尾结果卡的停留时长（默认 5 / 13 秒，0 = 不显示） |
 | `--no-fuzz` | 只做被动观察 + DOM 审计，不主动模糊测试 |
 | `--json` | 把最终 RunReport 打到 stdout（便于 CI 解析） |
 
@@ -187,7 +192,8 @@ webprobe kinds                                   列出全部缺陷类型
 │   │   │   ├── detectors.mjs       判断层：信号→缺陷、DOM 审计、断言
 │   │   │   ├── fuzzer.mjs          元素发现 + 动作计划生成
 │   │   │   ├── engine.mjs          动态执行编排 + 证据采集
-│   │   │   ├── recorder.mjs        CDP 屏幕录制 → mp4
+│   │   │   ├── recorder.mjs        CDP 屏幕录制 → mp4（帧率节流 + 真实时长）
+│   │   │   ├── hud.mjs            把平台结论画进被测页面（面板/高亮/信息卡）
 │   │   │   ├── reporter.mjs        JSON / Markdown / HTML 报告
 │   │   │   └── server.mjs          本地看板服务器（JSON API + 静态 UI）
 │   │   └── ...
@@ -206,10 +212,10 @@ webprobe kinds                                   列出全部缺陷类型
 ├── tools/
 │   └── recon/                 ← 需求读取与环境侦察期的一次性调查脚本（保留作依据）
 ├── video/                     ← 成功运行平台对软件进行测试的录像
-│   ├── huya-live-test-run.mp4
-│   ├── huya-live-report.html
+│   ├── huya-live-test-run.mp4    运行录像（含页内状态面板与结果卡）
+│   ├── huya-live-report.html     离线可打开的测试报告
 │   ├── huya-live-report.md
-│   └── huya-live-console.log
+│   └── huya-live-console.log     完整控制台输出
 ├── prompt/                    ← 与大模型交互产生并调试本平台的完整过程
 │   ├── 01-requirements.md
 │   ├── 02-recon-and-design.md
@@ -304,6 +310,20 @@ webprobe kinds                                   列出全部缺陷类型
 **复现脚本**值得一提：每个缺陷都会生成一份**可以直接运行的**
 Playwright 最小复现脚本（`artifacts/findings/<签名>/repro.spec.mjs`），
 把"打开哪个页面 → 点了哪些元素 → 输入了什么"重放一遍，并打印浏览器在这期间报的错。
+
+### 录像：结论直接画在页面里
+
+平台自己的结论（当前动作、实时缺陷清单、缺陷所在的元素）会被**绘制进被测页面**，
+所以 `video/` 里的录像不需要对照终端就能看懂：
+
+- **状态面板**：已运行时长、当前动作、页面/动作/请求/缺陷计数器、按严重级配色的缺陷流；
+- **元素高亮**：用红色虚线框把出问题的元素圈出来并标注缺陷标题；
+- **开场信息卡**（5 秒）：被测目标、预算、随机种子、浏览器；
+- **结尾结果卡**（13 秒）：缺陷总数、严重级分布、第一方/第三方归属、Top 10 缺陷清单。
+
+叠加层挂在 `document.documentElement` 上（不是 `<body>`），并带 `data-webprobe` 标记，
+因此**平台的"白屏检测"、目标断言、DOM 审计与模糊测试都不会把它当成被测软件的一部分**
+——这一点由零缺陷对照组 `clean-site` 在开启叠加层时仍然 0 检出所验证。
 
 看板（`webprobe ui`）在此之上提供：运行历史、当前运行进度轮询、
 严重级与类型分布图、可排序可筛选的缺陷表、缺陷详情抽屉（截图灯箱 / 堆栈 / 复现步骤 / 证据链接）、
@@ -428,6 +448,8 @@ node code/src/cli.mjs selftest
 
 第二条比第一条更重要。**一个测试平台最大的风险不是漏报，而是误报**——
 漏报只是少发现，误报会让使用者彻底不再相信报告。
+它同时也是**页内叠加面板的回归测试**：如果面板的样式或文字污染了任何一条检测规则，
+`clean-site` 立刻就不再是 0 检出。
 本项目里几乎每一条检测规则都能追溯到一次真实的误报或漏报，完整记录见
 [`prompt/04-debug-log.md`](prompt/04-debug-log.md)。
 

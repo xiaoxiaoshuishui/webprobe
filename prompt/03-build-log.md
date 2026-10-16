@@ -30,6 +30,10 @@
   另有主动探测（主线程存活探针）。
 - `recorder.mjs`：CDP `Page.startScreencast` 抓 JPEG 帧 + 每帧时间戳，
   用 ffmpeg 的 concat demuxer 按**真实耗时**设定每帧 `duration`，所以回放速度与实测速度一致。
+- `hud.mjs`：**把平台的结论画进被测页面**。状态面板、实时缺陷清单、缺陷元素高亮、
+  开场信息卡与结尾结果卡——因为 screencast 只能拍到页面自己画的东西，
+  不这么做录像就只是"浏览器在自动逛网页"。叠加层挂在 `document.documentElement`
+  而非 `<body>`，并带 `data-webprobe` 标记，因此不会污染任何一条检测规则。
 
 ## 3.4 判断层
 
