@@ -20,3 +20,22 @@ node tools/recon/probe_net.mjs
 node tools/recon/probe_huya_selectors.mjs
 python tools/recon/pdf2txt.py <某个.pdf>
 ```
+
+---
+
+## 补充：GitHub 连通性探测（交付阶段）
+
+`probe_github_ip.mjs` 用于回答"为什么 git 连不上 GitHub"。结论：
+
+| 端点 | 结果 |
+| --- | --- |
+| `github.com:443`（DNS 当时解析到 20.205.243.166） | ✘ 连接超时（TLS 亦不可达） |
+| `github.com:443` 指向 `140.82.112.3 / .113.3 / .114.3 / .116.3 / .121.3` | ✔ HTTP 200，SNI=`github.com` 且证书校验通过 |
+| `github.com:22`（SSH） | ✔ TCP 可通 |
+| `ssh.github.com:443` | ✔ TCP 可通 |
+| `api.github.com:443` | ✔ HTTP 200 |
+| `gitee.com:443` | ✔ 可通 |
+
+即：本机网络对 GitHub 的阻断**只针对特定 IP**，而非整个域名。
+脚本用 `https.request` 指定 IP、把 SNI 与 Host 头设为 `github.com` 并强制校验证书，
+以此确认"换 IP 后 TLS 是否也能正常工作"——只看 TCP 连通性是不够的。
